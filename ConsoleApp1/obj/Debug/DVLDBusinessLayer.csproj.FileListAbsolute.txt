@@ -1,0 +1,13 @@
+C:\Users\LENOVO\OneDrive - just.edu.jo\Visual Studio\DVLD Project\ConsoleApp1\obj\Debug\DVLDBusinessLayer.csproj.AssemblyReference.cache
+C:\Users\LENOVO\OneDrive - just.edu.jo\Visual Studio\DVLD Project\ConsoleApp1\obj\Debug\DVLDBusinessLayer.csproj.CoreCompileInputs.cache
+C:\Users\LENOVO\OneDrive - just.edu.jo\Visual Studio\DVLD Project\ConsoleApp1\bin\Debug\ConsoleApp1.dll.config
+C:\Users\LENOVO\OneDrive - just.edu.jo\Visual Studio\DVLD Project\ConsoleApp1\bin\Debug\ConsoleApp1.dll
+C:\Users\LENOVO\OneDrive - just.edu.jo\Visual Studio\DVLD Project\ConsoleApp1\bin\Debug\ConsoleApp1.pdb
+C:\Users\LENOVO\OneDrive - just.edu.jo\Visual Studio\DVLD Project\ConsoleApp1\bin\Debug\DVLD_DataAccessLayer.dll
+C:\Users\LENOVO\OneDrive - just.edu.jo\Visual Studio\DVLD Project\ConsoleApp1\bin\Debug\DVLD_DataAccessLayer.pdb
+C:\Users\LENOVO\OneDrive - just.edu.jo\Visual Studio\DVLD Project\ConsoleApp1\bin\Debug\DVLD_DataAccessLayer.dll.config
+C:\Users\LENOVO\OneDrive - just.edu.jo\Visual Studio\DVLD Project\ConsoleApp1\obj\Debug\DVLDBusi.7D6D57CA.Up2Date
+C:\Users\LENOVO\OneDrive - just.edu.jo\Visual Studio\DVLD Project\ConsoleApp1\obj\Debug\ConsoleApp1.dll
+C:\Users\LENOVO\OneDrive - just.edu.jo\Visual Studio\DVLD Project\ConsoleApp1\obj\Debug\ConsoleApp1.pdb
+C:\Users\LENOVO\OneDrive - just.edu.jo\Visual Studio\DVLD Project\ConsoleApp1\bin\Debug\Settings.dll
+C:\Users\LENOVO\OneDrive - just.edu.jo\Visual Studio\DVLD Project\ConsoleApp1\bin\Debug\Settings.pdb
