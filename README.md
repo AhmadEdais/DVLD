@@ -2,7 +2,7 @@
 
 ![Status](https://img.shields.io/badge/Status-Work_in_Progress-yellow) ![Platform](https://img.shields.io/badge/Platform-Windows-blue) ![Language](https://img.shields.io/badge/Language-C%23-green)
 
-A comprehensive desktop application for managing the workflow of a Department of Motor Vehicles (DMV). This system handles the complete lifecycle of issuing driving licenses, from the initial application and scheduling tests to the final issuance and license management.
+A comprehensive desktop application for managing the workflow of a Driving & Vehicle License Department System (DVLD). This system handles the complete lifecycle of issuing driving licenses, from the initial application and scheduling tests to the final issuance and license management.
 
 **🚧 Note:** This project is currently under active development.
 
