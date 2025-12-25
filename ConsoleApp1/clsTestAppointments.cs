@@ -86,7 +86,10 @@ namespace ConsoleApp1
         {
             return clsTestAppointmentData.GetApplicationTestAppointmentsPerTestType(LocalDrivingLicenseApplicationID, (int)enTestTypeID);
         }
-        
+        public static bool IsThereAnActiveScheduledTest(int LocalDrivingLicenseApplicationID, int TestTypeID)
+        {
+            return clsTestAppointmentData.IsThereAnActiveScheduledTest(LocalDrivingLicenseApplicationID, TestTypeID);
+        }
         public bool Save()
         {
             switch (Mode)

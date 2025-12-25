@@ -119,16 +119,19 @@ namespace DVLD_Project.Test_Appointments
                 case clsTestTypes.enTestTypeID.Vision:
                     pbAppointment.Image = DVLD_Project.Properties.Resources.Vision_512;
                     lblTestAppointmentName.Text = "Vision Test Appointment";
+                    gbTestInfo.Text = "Vision Test Appointment"; 
                     this.Text = "Vision Test Appointment";
                     break;
                 case clsTestTypes.enTestTypeID.Written:
                     pbAppointment.Image = DVLD_Project.Properties.Resources.Written_Test_512;
                     lblTestAppointmentName.Text = "Written Test Appointment";
+                    gbTestInfo.Text = "Written Test Appointment";
                     this.Text = "Written Test Appointment";
                     break;
                 case clsTestTypes.enTestTypeID.Road:
                     pbAppointment.Image = DVLD_Project.Properties.Resources.driving_test_512;
                     lblTestAppointmentName.Text = "Street Test Appointment";
+                    gbTestInfo.Text = "Street Test Appointment";
                     this.Text = "Street Test Appointment";
                     break;
             }

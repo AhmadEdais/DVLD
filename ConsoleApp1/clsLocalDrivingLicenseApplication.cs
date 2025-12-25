@@ -156,7 +156,7 @@ namespace ConsoleApp1
         }
         public static byte GetTestTrials(int LocalDrivingLicenseApplicationID, clsTestTypes.enTestTypeID TestTypeID)
         {
-            return clsLocalDrivingLicenseApplication.GetTestTrials(LocalDrivingLicenseApplicationID, TestTypeID);
+            return clsLocalDrivingLicenseApplicationData.GetTestTrials(LocalDrivingLicenseApplicationID, (int)TestTypeID);
         }
         public static string GetApplicantFullNameByLocalDrivingLicenseAppID(int LocalDrivingLicenseApplicationID)
         {

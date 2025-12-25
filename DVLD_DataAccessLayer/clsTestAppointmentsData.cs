@@ -176,5 +176,44 @@ public class clsTestAppointmentData
 
         return dt;
     }
-    
+    public static bool IsThereAnActiveScheduledTest(int LocalDrivingLicenseApplicationID, int TestTypeID)
+    {
+        bool isFound = false;
+
+        // We check for IsLocked = 0 (Active/Open appointment)
+        string query = @"SELECT TOP 1 Found=1 
+                     FROM TestAppointments 
+                     WHERE LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID 
+                     AND TestTypeID = @TestTypeID
+                     AND IsLocked = 0";
+
+        try
+        {
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LocalDrivingLicenseApplicationID);
+                    command.Parameters.AddWithValue("@TestTypeID", TestTypeID);
+
+                    connection.Open();
+
+                    object result = command.ExecuteScalar();
+
+                    if (result != null)
+                    {
+                        isFound = true;
+                    }
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            // Ideally, log the error to Event Viewer
+            isFound = false;
+        }
+
+        return isFound;
+    }
+
 }

@@ -596,7 +596,7 @@ VALUES
 
     
     public static bool IsPersinExistByNationalNO(string NationalNO)
-        {
+    {
             bool isFound = false;
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static ConsoleApp1.clsTestTypes;
 
 namespace DVLD_Project.Test_Appointments
 {
@@ -67,6 +68,11 @@ namespace DVLD_Project.Test_Appointments
 
         private void btnAddNewAppointment_Click(object sender, EventArgs e)
         {
+            if (clsTestAppointments.IsThereAnActiveScheduledTest(_LocalDrivingLicenseApplicationID, (int)_enTestType))
+            {
+                MessageBox.Show("There is already an active scheduled Road Test for this application.", "Cannot Schedule", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             Form frm = new frmAddEditTestAppointment(_LocalDrivingLicenseApplicationID, _enTestType);
             frm.ShowDialog();
             _RefreshAppointmentList(_enTestType);
