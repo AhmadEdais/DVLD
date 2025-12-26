@@ -42,3 +42,4 @@ C:\Users\LENOVO\OneDrive - just.edu.jo\Visual Studio\DVLD Project\DVLD Project\o
 C:\Users\LENOVO\OneDrive - just.edu.jo\Visual Studio\DVLD Project\DVLD Project\obj\Debug\DVLD Project.exe.config
 C:\Users\LENOVO\OneDrive - just.edu.jo\Visual Studio\DVLD Project\DVLD Project\obj\Debug\DVLD_Project.Test_Appointments.frmTestAppointments.resources
 C:\Users\LENOVO\OneDrive - just.edu.jo\Visual Studio\DVLD Project\DVLD Project\obj\Debug\DVLD_Project.Test_Appointments.frmAddEditTestAppointment.resources
+C:\Users\LENOVO\OneDrive - just.edu.jo\Visual Studio\DVLD Project\DVLD Project\obj\Debug\DVLD_Project.Test_Appointments.frmTakeTest.resources

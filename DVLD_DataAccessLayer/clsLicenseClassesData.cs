@@ -147,5 +147,38 @@ namespace DVLD_DataAccess
             return dt;
         
         }
+        public static int GetLicenseClassIDByClassName(string ClassName)
+        {
+            int LicenseClassID = -1; // Default return value if not found
+
+            string query = "SELECT LicenseClassID FROM LicenseClasses WHERE ClassName = @ClassName";
+
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@ClassName", ClassName);
+
+                    try
+                    {
+                        connection.Open();
+
+                        // ExecuteScalar returns the first column of the first row
+                        object result = command.ExecuteScalar();
+
+                        if (result != null && int.TryParse(result.ToString(), out int insertedID))
+                        {
+                            LicenseClassID = insertedID;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        // Log error (Event Viewer)
+                    }
+                }
+            }
+
+            return LicenseClassID;
+        }
     }
 }

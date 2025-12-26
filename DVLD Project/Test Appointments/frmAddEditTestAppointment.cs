@@ -10,16 +10,18 @@ namespace DVLD_Project.Test_Appointments
     {
         private int _TestAppointmentID = -1;
         private int _LocalDrivingLicenseApplicationID = -1;
+        bool _isLocked = false;
         private clsTestTypes.enTestTypeID _enTestTypeID = clsTestTypes.enTestTypeID.Vision;
 
         private clsTestAppointments _TestAppointment;
 
-        public frmAddEditTestAppointment(int LocalDrivingLicenseApplicationID, clsTestTypes.enTestTypeID enTestTypeID, int TestAppointmentID = -1)
+        public frmAddEditTestAppointment(int LocalDrivingLicenseApplicationID, clsTestTypes.enTestTypeID enTestTypeID, int TestAppointmentID = -1,bool isLocked = false)
         {
             InitializeComponent();
             _LocalDrivingLicenseApplicationID = LocalDrivingLicenseApplicationID;
             _enTestTypeID = enTestTypeID;
             _TestAppointmentID = TestAppointmentID;
+            _isLocked = isLocked;
         }
 
         private void frmAddEditTestAppointment_Load(object sender, EventArgs e)
@@ -29,13 +31,21 @@ namespace DVLD_Project.Test_Appointments
             // 1. Initialize the Object FIRST (Crucial Step!)
             if (_TestAppointmentID == -1)
             {
+                dtpDate.MinDate = DateTime.Now;
                 // ============ NEW MODE ============
                 _TestAppointment = new clsTestAppointments();
                 _TestAppointment.RetakeTestApplicationID = -1; // Default for new appointments
             }
             else
             {
+
                 // ============ UPDATE MODE ============
+                if(_isLocked)
+                {
+                    lblLockedMessage.Text = "Person already sat for the test, appointment is locked";
+                    dtpDate.Enabled = false;
+                    btnSave.Enabled = false;
+                }
                 _TestAppointment = clsTestAppointments.Find(_TestAppointmentID);
                 if (_TestAppointment == null)
                 {
@@ -65,12 +75,12 @@ namespace DVLD_Project.Test_Appointments
 
             // Get Standard Test Fees (e.g., 10.00)
             lblFees.Text = clsTestTypes.GetTestTypeFees(_enTestTypeID).ToString();
+            dtpDate.Value = DateTime.Now;
 
             // --- 2. Specific Logic for New vs Update ---
             if (_TestAppointmentID == -1)
             {
                 // ================== NEW MODE ==================
-                dtpDate.Value = DateTime.Now;
                 lblRTestAppID.Text = "N/A";
 
                 // LOGIC: If Trials > 0, this is a Retake!
@@ -90,7 +100,6 @@ namespace DVLD_Project.Test_Appointments
             else
             {
                 // ================== UPDATE MODE ==================
-                dtpDate.Value = _TestAppointment.AppointmentDate;
 
                 // Check if saved record has Retake info
                 if (_TestAppointment.RetakeTestApplicationID == -1)
@@ -135,7 +144,6 @@ namespace DVLD_Project.Test_Appointments
                     this.Text = "Street Test Appointment";
                     break;
             }
-            dtpDate.MinDate = DateTime.Now;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -151,7 +159,7 @@ namespace DVLD_Project.Test_Appointments
             if (_TestAppointment.Save())
             {
                 MessageBox.Show("Test Appointment Saved Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+               
             }
             else
             {
@@ -163,5 +171,7 @@ namespace DVLD_Project.Test_Appointments
         {
             this.Close();
         }
+
+       
     }
 }

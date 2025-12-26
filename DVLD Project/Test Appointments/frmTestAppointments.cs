@@ -77,5 +77,45 @@ namespace DVLD_Project.Test_Appointments
             frm.ShowDialog();
             _RefreshAppointmentList(_enTestType);
         }
+
+        private void editTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_selectedRowIndex >= 0)
+            {
+                bool isLocked = (bool)dgvAllAppointments.Rows[_selectedRowIndex].Cells["Is Locked"].Value;
+               
+                // 2. Get the ID directly from the saved row index
+                //    (Replace "PersonID" with the actual name of your ID column)
+                int AppointmentID = (int)dgvAllAppointments.Rows[_selectedRowIndex].Cells["Appointment ID"].Value;
+                Form frm = new frmAddEditTestAppointment(_LocalDrivingLicenseApplicationID, _enTestType, AppointmentID,isLocked);
+                frm.ShowDialog();
+                _RefreshAppointmentList(_enTestType);
+            }
+        }
+
+        private void dgvAllAppointments_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right && e.RowIndex >= 0)
+            {
+                // Save the index
+                _selectedRowIndex = e.RowIndex;
+
+                // Optional: highlight the right-clicked row
+                dgvAllAppointments.ClearSelection();
+                dgvAllAppointments.Rows[e.RowIndex].Selected = true;
+            }
+        }
+
+        private void takeTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_selectedRowIndex >= 0)
+            {
+               
+                int AppointmentID = (int)dgvAllAppointments.Rows[_selectedRowIndex].Cells["Appointment ID"].Value;
+                Form frm = new frmTakeTest(AppointmentID);
+                frm.ShowDialog();
+                _RefreshAppointmentList(_enTestType);
+            }
+        }
     }
 }

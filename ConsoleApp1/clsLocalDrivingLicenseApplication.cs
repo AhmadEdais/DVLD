@@ -162,5 +162,24 @@ namespace ConsoleApp1
         {
             return clsLocalDrivingLicenseApplicationData.GetApplicantFullNameByLocalDrivingLicenseAppID(LocalDrivingLicenseApplicationID);
         }
+        //// 1. Property to get the Class Name easily from an instance
+        //public string LicenseClassName
+        //{
+        //    get
+        //    {
+        //        return clsLocalDrivingLicenseApplicationDataAccess.GetLicenseClassNameByID(this.LocalDrivingLicenseApplicationID);
+        //    }
+        //}
+
+        // 2. Or, if you prefer a Static Method to call without loading the object
+        public static string GetLicenseClassNameByID(int LocalDrivingLicenseApplicationID)
+        {
+            return clsLocalDrivingLicenseApplicationData.GetLicenseClassNameByID(LocalDrivingLicenseApplicationID);
+        }
+        // 1. Static Method (Call without loading the object)
+        public static string GetApplicantFullNameByID(int LocalDrivingLicenseApplicationID)
+        {
+            return clsLocalDrivingLicenseApplicationData.GetApplicantFullNameByLocalDrivingLicenseApplicationID(LocalDrivingLicenseApplicationID);
+        }
     }
 }

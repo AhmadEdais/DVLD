@@ -90,6 +90,16 @@ namespace ConsoleApp1
         {
             return clsTestAppointmentData.IsThereAnActiveScheduledTest(LocalDrivingLicenseApplicationID, TestTypeID);
         }
+        public bool Lock()
+        {
+            // If the update works, we also update the local object in memory
+            if (clsTestAppointmentData.LockTestAppointment(this.TestAppointmentID))
+            {
+                this.IsLocked = true;
+                return true;
+            }
+            return false;
+        }
         public bool Save()
         {
             switch (Mode)

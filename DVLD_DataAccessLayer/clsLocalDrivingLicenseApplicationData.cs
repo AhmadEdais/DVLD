@@ -409,5 +409,91 @@ namespace DVLDBusinessLayer // Change to your actual DataAccess namespace if dif
 
             return FullName;
         }
+        public static string GetLicenseClassNameByID(int LocalDrivingLicenseApplicationID)
+        {
+            string ClassName = "";
+
+            string query = @"SELECT ClassName
+                     FROM LicenseClasses 
+                     INNER JOIN LocalDrivingLicenseApplications 
+                     ON LicenseClasses.LicenseClassID = LocalDrivingLicenseApplications.LicenseClassID
+                     WHERE LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID";
+
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LocalDrivingLicenseApplicationID);
+
+                    try
+                    {
+                        connection.Open();
+
+                        object result = command.ExecuteScalar();
+
+                        if (result != null)
+                        {
+                            ClassName = result.ToString();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        // Log error
+                    }
+                }
+            }
+
+            return ClassName;
+        }
+        public static string GetApplicantFullNameByLocalDrivingLicenseApplicationID(int LocalDrivingLicenseApplicationID)
+        {
+            string FullName = "";
+
+            // We select the individual names, but you could also concatenate in SQL
+            string query = @"SELECT People.FirstName, People.SecondName, People.ThirdName, People.LastName
+                     FROM LocalDrivingLicenseApplications 
+                     INNER JOIN Applications ON LocalDrivingLicenseApplications.ApplicationID = Applications.ApplicationID 
+                     INNER JOIN People ON Applications.ApplicantPersonID = People.PersonID
+                     WHERE LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID";
+
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LocalDrivingLicenseApplicationID);
+
+                    try
+                    {
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                // We construct the full name in C# to safely handle nulls (like ThirdName)
+                                string First = (string)reader["FirstName"];
+                                string Second = (string)reader["SecondName"];
+
+                                string Third = "";
+                                if (reader["ThirdName"] != DBNull.Value)
+                                {
+                                    Third = (string)reader["ThirdName"];
+                                }
+
+                                string Last = (string)reader["LastName"];
+
+                                // Join them with spaces, ignoring empty Third names
+                                FullName = First + " " + Second + " " + (Third != "" ? Third + " " : "") + Last;
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        // Log error
+                    }
+                }
+            }
+
+            return FullName;
+        }
     }
 }

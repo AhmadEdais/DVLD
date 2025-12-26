@@ -143,11 +143,14 @@ public class clsTestAppointmentData
     {
         DataTable dt = new DataTable();
 
-        string query = @"SELECT TestAppointmentID, AppointmentDate, PaidFees, IsLocked
-                     FROM TestAppointments
-                     WHERE LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID 
-                     AND TestTypeID = @TestTypeID
-                     ORDER BY AppointmentDate DESC";
+        string query = @"SELECT TestAppointmentID AS [Appointment ID], 
+                        AppointmentDate AS [Appointment Date], 
+                        PaidFees AS [Paid Fees], 
+                        IsLocked AS [Is Locked]
+                 FROM TestAppointments
+                 WHERE LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID 
+                 AND TestTypeID = @TestTypeID
+                 ORDER BY AppointmentDate DESC";
 
         using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
         {
@@ -214,6 +217,37 @@ public class clsTestAppointmentData
         }
 
         return isFound;
+    }
+    public static bool LockTestAppointment(int TestAppointmentID)
+    {
+        int rowsAffected = 0;
+
+        // Use a parameter @TestAppointmentID to target ONE specific row
+        string query = @"UPDATE TestAppointments 
+                     SET IsLocked = 1 
+                     WHERE TestAppointmentID = @TestAppointmentID";
+
+        using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+        {
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@TestAppointmentID", TestAppointmentID);
+
+                try
+                {
+                    connection.Open();
+                    rowsAffected = command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    // Log error
+                    return false;
+                }
+            }
+        }
+
+        // Return true if at least one row was updated
+        return (rowsAffected > 0);
     }
 
 }

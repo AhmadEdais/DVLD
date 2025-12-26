@@ -1,4 +1,5 @@
 ﻿using ConsoleApp1;
+using DVLD_Buisness;
 using DVLD_Project.Test_Appointments;
 using DVLD_Project.Users;
 using System;
@@ -52,6 +53,70 @@ namespace DVLD_Project.Local_Driving_Licenses
             Form frm = new frmAddLocalDrivingLicense(LDLApplicationID);
             frm.ShowDialog();
             _RefreshLDLApplications();
+        }
+        private void _DisableContextMenuItemsBasedOnStatus(int LDLAppID,int ClassID,string status)
+        {
+            // Example logic to disable/enable menu items based on status
+            if (status == "Cancelled" || status == "Completed")
+            {
+                editApplicationToolStripMenuItem.Enabled = false;
+                deleteApplicationToolStripMenuItem.Enabled = false;
+                cancelApplicationToolStripMenuItem.Enabled = false;
+                sechduleTestsToolStripMenuItem.Enabled = false;
+                issueDrivingLicenseFirstTimeToolStripMenuItem.Enabled = false;
+                return;
+            }
+
+            // if has a License issued
+
+            if (clsLicense.IsLicenseExistByLocalDrivingLicenseApplicationID(LDLAppID,ClassID))
+            {
+
+                sechduleTestsToolStripMenuItem.Enabled = false;
+                return;
+            }
+            showLicenseToolStripMenuItem.Enabled = false;
+            int TestPassed = clsLocalDrivingLicenseApplication.GetPassedTestCount(LDLAppID);
+            //if passed street test
+            if (TestPassed == 3)
+            {
+                sechduleTestsToolStripMenuItem.Enabled = false;
+                return;
+            }
+            issueDrivingLicenseFirstTimeToolStripMenuItem.Enabled = false;
+            //if passed written test
+            if (TestPassed == 2)
+            {
+                scheduleVisionTestToolStripMenuItem.Enabled = false;
+                scheduleWrittenTestToolStripMenuItem.Enabled = false;
+                return;
+            }
+            //if passed vision test
+            if(TestPassed == 1)
+            {
+                scheduleVisionTestToolStripMenuItem.Enabled = false;
+                scheduleStreetTestToolStripMenuItem.Enabled = false;
+                return;
+            }
+            //if no tests passed
+
+            scheduleWrittenTestToolStripMenuItem.Enabled = false;
+            scheduleStreetTestToolStripMenuItem.Enabled = false;
+            return;
+           
+
+        }
+        private void _EnableAllContextMenuItems()
+        {
+            editApplicationToolStripMenuItem.Enabled = true;
+            deleteApplicationToolStripMenuItem.Enabled = true;
+            cancelApplicationToolStripMenuItem.Enabled = true;
+            sechduleTestsToolStripMenuItem.Enabled = true;
+            scheduleVisionTestToolStripMenuItem.Enabled = true;
+            scheduleWrittenTestToolStripMenuItem.Enabled = true;
+            scheduleStreetTestToolStripMenuItem.Enabled = true;
+            issueDrivingLicenseFirstTimeToolStripMenuItem.Enabled = true;
+            showLicenseToolStripMenuItem.Enabled = true;
         }
         private void btnManagePeopleClose_Click(object sender, EventArgs e)
         {
@@ -327,6 +392,25 @@ namespace DVLD_Project.Local_Driving_Licenses
                 frm.ShowDialog();
                 _RefreshLDLApplications();
             }
+        }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+            if (_selectedRowIndex >= 0)
+            {
+                // 2. Get the ID directly from the saved row index
+                //    (Replace "PersonID" with the actual name of your ID column)
+                int LDLAppID = (int)dgvAllLDLApplications.Rows[_selectedRowIndex].Cells["L.D.LAppID"].Value;
+                int ClassID = clsLicenseClass.GetIDByClassName(dgvAllLDLApplications.Rows[_selectedRowIndex].Cells["Driving Class"].Value.ToString());
+                _DisableContextMenuItemsBasedOnStatus(LDLAppID, ClassID, dgvAllLDLApplications.Rows[_selectedRowIndex].Cells["Status"].Value.ToString());
+            }
+        }
+
+        private void contextMenuStrip1_Closing(object sender, ToolStripDropDownClosingEventArgs e)
+        {
+
+            _EnableAllContextMenuItems();
+
         }
     }
 }

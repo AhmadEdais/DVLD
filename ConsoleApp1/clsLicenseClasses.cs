@@ -80,7 +80,10 @@ namespace DVLD_Buisness
             return clsLicenseClassData.UpdateLicenseClass(this.LicenseClassID, this.ClassName,
                 this.ClassDescription, this.MinimumAllowedAge, this.DefaultValidityLength, this.ClassFees);
         }
-
+        public static int GetIDByClassName(string ClassName)
+        {
+            return clsLicenseClassData.GetLicenseClassIDByClassName(ClassName);
+        }
         public bool Save()
         {
             switch (Mode)
