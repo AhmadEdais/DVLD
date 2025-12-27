@@ -36,18 +36,18 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTestAppointments));
             this.lblTestAppointmentName = new System.Windows.Forms.Label();
             this.dgvAllAppointments = new System.Windows.Forms.DataGridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.editTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.takeTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblRecordsNumber = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnAddNewAppointment = new System.Windows.Forms.Button();
             this.btnManagePeopleClose = new System.Windows.Forms.Button();
             this.pbTestAppoitment = new System.Windows.Forms.PictureBox();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.editTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.takeTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ctrlLocalDriverLicenseApplicationInfo1 = new DVLD_Project.Local_Driving_Licenses.ctrlLocalDriverLicenseApplicationInfo();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllAppointments)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbTestAppoitment)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTestAppoitment)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTestAppointmentName
@@ -64,7 +64,6 @@
             // 
             this.dgvAllAppointments.AllowUserToAddRows = false;
             this.dgvAllAppointments.AllowUserToDeleteRows = false;
-            this.dgvAllAppointments.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvAllAppointments.BackgroundColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -102,6 +101,33 @@
             this.dgvAllAppointments.Size = new System.Drawing.Size(1073, 193);
             this.dgvAllAppointments.TabIndex = 12;
             this.dgvAllAppointments.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvAllAppointments_CellMouseDown);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editTestToolStripMenuItem,
+            this.takeTestToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(154, 80);
+            // 
+            // editTestToolStripMenuItem
+            // 
+            this.editTestToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("editTestToolStripMenuItem.Image")));
+            this.editTestToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.editTestToolStripMenuItem.Name = "editTestToolStripMenuItem";
+            this.editTestToolStripMenuItem.Size = new System.Drawing.Size(153, 38);
+            this.editTestToolStripMenuItem.Text = "Edit Test";
+            this.editTestToolStripMenuItem.Click += new System.EventHandler(this.editTestToolStripMenuItem_Click);
+            // 
+            // takeTestToolStripMenuItem
+            // 
+            this.takeTestToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("takeTestToolStripMenuItem.Image")));
+            this.takeTestToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.takeTestToolStripMenuItem.Name = "takeTestToolStripMenuItem";
+            this.takeTestToolStripMenuItem.Size = new System.Drawing.Size(153, 38);
+            this.takeTestToolStripMenuItem.Text = "Take Test";
+            this.takeTestToolStripMenuItem.Click += new System.EventHandler(this.takeTestToolStripMenuItem_Click);
             // 
             // lblRecordsNumber
             // 
@@ -159,33 +185,6 @@
             this.pbTestAppoitment.TabIndex = 1;
             this.pbTestAppoitment.TabStop = false;
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.editTestToolStripMenuItem,
-            this.takeTestToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(227, 108);
-            // 
-            // editTestToolStripMenuItem
-            // 
-            this.editTestToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("editTestToolStripMenuItem.Image")));
-            this.editTestToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.editTestToolStripMenuItem.Name = "editTestToolStripMenuItem";
-            this.editTestToolStripMenuItem.Size = new System.Drawing.Size(226, 38);
-            this.editTestToolStripMenuItem.Text = "Edit Test";
-            this.editTestToolStripMenuItem.Click += new System.EventHandler(this.editTestToolStripMenuItem_Click);
-            // 
-            // takeTestToolStripMenuItem
-            // 
-            this.takeTestToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("takeTestToolStripMenuItem.Image")));
-            this.takeTestToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.takeTestToolStripMenuItem.Name = "takeTestToolStripMenuItem";
-            this.takeTestToolStripMenuItem.Size = new System.Drawing.Size(226, 38);
-            this.takeTestToolStripMenuItem.Text = "Take Test";
-            this.takeTestToolStripMenuItem.Click += new System.EventHandler(this.takeTestToolStripMenuItem_Click);
-            // 
             // ctrlLocalDriverLicenseApplicationInfo1
             // 
             this.ctrlLocalDriverLicenseApplicationInfo1.Location = new System.Drawing.Point(22, 207);
@@ -214,8 +213,8 @@
             this.Text = "frmTestAppointments";
             this.Load += new System.EventHandler(this.frmTestAppointments_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllAppointments)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbTestAppoitment)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbTestAppoitment)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

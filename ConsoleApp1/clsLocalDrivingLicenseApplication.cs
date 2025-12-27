@@ -181,5 +181,9 @@ namespace ConsoleApp1
         {
             return clsLocalDrivingLicenseApplicationData.GetApplicantFullNameByLocalDrivingLicenseApplicationID(LocalDrivingLicenseApplicationID);
         }
+        public static bool DoesPassTestType(int LocalDrivingLicenseApplicationID, clsTestTypes.enTestTypeID TestTypeID)
+        {
+            return clsLocalDrivingLicenseApplicationData.DoesPassTestType(LocalDrivingLicenseApplicationID, (int)TestTypeID);
+        }
     }
 }

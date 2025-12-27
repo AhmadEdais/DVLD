@@ -11,7 +11,12 @@ namespace ConsoleApp1
 
     public class clsApplication
     {
-            public enum enMode { AddNew = 0, Update = 1 };
+        public enum enApplicationType
+        {
+            NewDrivingLicense = 1, RenewDrivingLicense = 2, ReplaceLostDrivingLicense = 3,
+            ReplaceDamagedDrivingLicense = 4, ReleaseDetainedDrivingLicsense = 5, NewInternationalLicense = 6, RetakeTest = 7
+        };
+        public enum enMode { AddNew = 0, Update = 1 };
 
             // Based on typical DVLD logic: 1=New, 2=Cancelled, 3=Completed
             public enum enApplicationStatus { New = 1, Cancelled = 2, Completed = 3 };

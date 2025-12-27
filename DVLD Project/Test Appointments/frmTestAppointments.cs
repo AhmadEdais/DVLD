@@ -59,6 +59,15 @@ namespace DVLD_Project.Test_Appointments
         {
             _SetSettings(_enTestType);
             _RefreshAppointmentList(_enTestType);
+            if(dgvAllAppointments.Columns.Count > 0)
+            {
+                dgvAllAppointments.Columns["Appointment ID"].Width = 150;
+                dgvAllAppointments.Columns["Appointment Date"].Width = 180;
+                dgvAllAppointments.Columns["Paid Fees"].Width = 130;
+                dgvAllAppointments.Columns["Is Locked"].Width = 120;
+            }
+            
+
         }
 
         private void btnManagePeopleClose_Click(object sender, EventArgs e)
@@ -70,9 +79,15 @@ namespace DVLD_Project.Test_Appointments
         {
             if (clsTestAppointments.IsThereAnActiveScheduledTest(_LocalDrivingLicenseApplicationID, (int)_enTestType))
             {
-                MessageBox.Show("There is already an active scheduled Road Test for this application.", "Cannot Schedule", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("There is already an active scheduled Test for this application.", "Cannot Schedule", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                
+            }
+            if(clsLocalDrivingLicenseApplication.DoesPassTestType(_LocalDrivingLicenseApplicationID,_enTestType))
+            {
+                MessageBox.Show("The applicant has already passed this test type. Cannot schedule another appointment.", "Cannot Schedule", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
             Form frm = new frmAddEditTestAppointment(_LocalDrivingLicenseApplicationID, _enTestType);
             frm.ShowDialog();
             _RefreshAppointmentList(_enTestType);

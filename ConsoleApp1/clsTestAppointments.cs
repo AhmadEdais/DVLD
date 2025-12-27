@@ -21,7 +21,7 @@ namespace ConsoleApp1
         public int CreatedByUserID { get; set; }
         public bool IsLocked { get; set; }
         public int RetakeTestApplicationID { get; set; }
-
+        public clsApplication RetakeTestAppInfo { set; get; }
         public clsTestAppointments()
         {
             this.TestAppointmentID = -1;

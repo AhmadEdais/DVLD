@@ -495,5 +495,44 @@ namespace DVLDBusinessLayer // Change to your actual DataAccess namespace if dif
 
             return FullName;
         }
+        public static bool DoesPassTestType(int LocalDrivingLicenseApplicationID, int TestTypeID)
+        {
+            bool result = false;
+
+            // We join with the Tests table to check the result (TestResult = 1 means Passed)
+            string query = @"SELECT TOP 1 Found=1 
+                     FROM LocalDrivingLicenseApplications 
+                     INNER JOIN TestAppointments ON LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID = TestAppointments.LocalDrivingLicenseApplicationID 
+                     INNER JOIN Tests ON TestAppointments.TestAppointmentID = Tests.TestAppointmentID
+                     WHERE LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID 
+                     AND TestAppointments.TestTypeID = @TestTypeID
+                     AND Tests.TestResult = 1";
+
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LocalDrivingLicenseApplicationID);
+                    command.Parameters.AddWithValue("@TestTypeID", TestTypeID);
+
+                    try
+                    {
+                        connection.Open();
+                        object returnedValue = command.ExecuteScalar();
+
+                        if (returnedValue != null)
+                        {
+                            result = true;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        // Log error
+                    }
+                }
+            }
+
+            return result;
+        }
     }
 }
