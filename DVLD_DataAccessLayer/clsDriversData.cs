@@ -146,11 +146,16 @@ public class clsDriverDataAccess
     public static DataTable GetAllDrivers()
     {
         DataTable dt = new DataTable();
-        // This query usually joins with People to be useful in a grid
-        string query = @"SELECT Drivers.DriverID, Drivers.PersonID, 
-                         People.NationalNo, People.FirstName, People.SecondName, People.LastName, 
-                         Drivers.CreatedDate, Drivers.CreatedByUserID 
-                         FROM Drivers INNER JOIN People ON Drivers.PersonID = People.PersonID";
+
+        string query = @"SELECT Drivers.DriverID AS [Driver ID],
+                            Drivers.PersonID AS [Person ID],
+                            People.NationalNo AS [National No],
+                            People.FirstName + ' ' + People.SecondName + ' ' + ISNULL(People.ThirdName,'') + ' ' + People.LastName AS [Full Name],
+                            Drivers.CreatedDate AS [Date],
+                            (SELECT COUNT(*) FROM Licenses WHERE Licenses.DriverID = Drivers.DriverID AND IsActive = 1) AS [Active Licenses]
+                     FROM Drivers
+                     INNER JOIN People ON Drivers.PersonID = People.PersonID
+                     ORDER BY [Full Name]";
 
         using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
         {
@@ -159,31 +164,35 @@ public class clsDriverDataAccess
                 try
                 {
                     connection.Open();
-                    using (SqlDataReader reader = command.ExecuteReader())
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    if (reader.HasRows)
                     {
-                        if (reader.HasRows)
-                        {
-                            dt.Load(reader);
-                        }
+                        dt.Load(reader);
                     }
+                    reader.Close();
                 }
                 catch (Exception ex)
                 {
-                    // Log error
+                    // Log Error
                 }
             }
         }
+
         return dt;
     }
     public static int GetDriverIDByLocalDrivingLicenseAppID(int LocalDrivingLicenseApplicationID)
     {
         int DriverID = -1;
 
-        string query = @"SELECT Licenses.DriverID
-                     FROM Applications 
-                     INNER JOIN Licenses ON Applications.ApplicationID = Licenses.ApplicationID 
-                     INNER JOIN LocalDrivingLicenseApplications ON Applications.ApplicationID = LocalDrivingLicenseApplications.ApplicationID
-                     WHERE LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID";
+        string query = @"
+          SELECT Drivers.DriverID
+          FROM LocalDrivingLicenseApplications
+          INNER JOIN Applications 
+              ON LocalDrivingLicenseApplications.ApplicationID = Applications.ApplicationID
+          INNER JOIN Drivers 
+              ON Applications.ApplicantPersonID = Drivers.PersonID
+          WHERE LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID";
 
         using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
         {

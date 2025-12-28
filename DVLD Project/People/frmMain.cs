@@ -1,5 +1,6 @@
 ﻿using ConsoleApp1;
 using DVLD_Project.Applications.Manage_Test_Types;
+using DVLD_Project.Divers;
 using DVLD_Project.Local_Driving_Licenses;
 using DVLD_Project.LogIn;
 using DVLD_Project.Manage_Application_Type;
@@ -98,6 +99,12 @@ namespace DVLD_Project
         private void localDrivingLicenseApplicationsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form frm = new frmListLocalDrivingLicenseApplications();
+            frm.ShowDialog();   
+        }
+
+        private void toolStripMainMenuItemDrivers_Click(object sender, EventArgs e)
+        {
+            Form frm = new frmListDrivers();
             frm.ShowDialog();   
         }
     }

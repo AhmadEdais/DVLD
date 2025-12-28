@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.MainMenuStrip = new System.Windows.Forms.MenuStrip();
-            this.pbMainBackGround = new System.Windows.Forms.PictureBox();
             this.toolStripMainMenuItemApplications = new System.Windows.Forms.ToolStripMenuItem();
             this.tDrivingLicenseServices = new System.Windows.Forms.ToolStripMenuItem();
             this.newDrivingLicenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,6 +55,7 @@
             this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.signOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pbMainBackGround = new System.Windows.Forms.PictureBox();
             this.MainMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbMainBackGround)).BeginInit();
             this.SuspendLayout();
@@ -75,19 +75,6 @@
             this.MainMenuStrip.Size = new System.Drawing.Size(1924, 98);
             this.MainMenuStrip.TabIndex = 1;
             this.MainMenuStrip.Text = "menuStrip1";
-            // 
-            // pbMainBackGround
-            // 
-            this.pbMainBackGround.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pbMainBackGround.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbMainBackGround.Image = ((System.Drawing.Image)(resources.GetObject("pbMainBackGround.Image")));
-            this.pbMainBackGround.Location = new System.Drawing.Point(0, 98);
-            this.pbMainBackGround.Name = "pbMainBackGround";
-            this.pbMainBackGround.Size = new System.Drawing.Size(1924, 957);
-            this.pbMainBackGround.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbMainBackGround.TabIndex = 0;
-            this.pbMainBackGround.TabStop = false;
-            this.pbMainBackGround.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // toolStripMainMenuItemApplications
             // 
@@ -256,6 +243,7 @@
             this.toolStripMainMenuItemDrivers.Name = "toolStripMainMenuItemDrivers";
             this.toolStripMainMenuItemDrivers.Size = new System.Drawing.Size(150, 94);
             this.toolStripMainMenuItemDrivers.Text = "Drivers";
+            this.toolStripMainMenuItemDrivers.Click += new System.EventHandler(this.toolStripMainMenuItemDrivers_Click);
             // 
             // toolStripMainMenuItemUsers
             // 
@@ -312,6 +300,19 @@
             this.signOutToolStripMenuItem.Size = new System.Drawing.Size(259, 38);
             this.signOutToolStripMenuItem.Text = "Sign Out";
             this.signOutToolStripMenuItem.Click += new System.EventHandler(this.signOutToolStripMenuItem_Click);
+            // 
+            // pbMainBackGround
+            // 
+            this.pbMainBackGround.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pbMainBackGround.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbMainBackGround.Image = ((System.Drawing.Image)(resources.GetObject("pbMainBackGround.Image")));
+            this.pbMainBackGround.Location = new System.Drawing.Point(0, 98);
+            this.pbMainBackGround.Name = "pbMainBackGround";
+            this.pbMainBackGround.Size = new System.Drawing.Size(1924, 957);
+            this.pbMainBackGround.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbMainBackGround.TabIndex = 0;
+            this.pbMainBackGround.TabStop = false;
+            this.pbMainBackGround.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // frmMain
             // 

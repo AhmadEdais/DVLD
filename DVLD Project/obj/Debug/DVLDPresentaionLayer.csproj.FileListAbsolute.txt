@@ -47,3 +47,4 @@ C:\Users\LENOVO\OneDrive - just.edu.jo\Visual Studio\DVLD Project\DVLD Project\o
 C:\Users\LENOVO\OneDrive - just.edu.jo\Visual Studio\DVLD Project\DVLD Project\obj\Debug\DVLD_Project.License.ctrlLicenseInfo.resources
 C:\Users\LENOVO\OneDrive - just.edu.jo\Visual Studio\DVLD Project\DVLD Project\obj\Debug\DVLD_Project.License.frmShowLicense.resources
 C:\Users\LENOVO\OneDrive - just.edu.jo\Visual Studio\DVLD Project\DVLD Project\obj\Debug\DVLD_Project.License.frmLicenseHistory.resources
+C:\Users\LENOVO\OneDrive - just.edu.jo\Visual Studio\DVLD Project\DVLD Project\obj\Debug\DVLD_Project.Divers.frmListDrivers.resources
