@@ -20,6 +20,13 @@ namespace DVLDBusinessLayer
         public string SecondName { get; set; }
         public string ThirdName { get; set; }
         public string LastName { get; set; }
+        public string FullName
+        {
+            get
+            {
+                return clsPersonData.GetFullName(this.ID);
+            }
+        }
         public string NationalNO { get; set; }
         public DateTime DateOfBirth { get; set; }
         public short Gendor {  get; set; }
@@ -81,7 +88,7 @@ namespace DVLDBusinessLayer
                                                 , this.DateOfBirth, this.Gendor, this.Email, this.Phone, this.ImagePath
                                                 , this.NatoinalityCountryID, this.Address);
         }
-        public static clsPerson FindPersonByID(int ID)
+        public static clsPerson Find(int ID)
         {
             string FirstName = "",
             SecondName = "",

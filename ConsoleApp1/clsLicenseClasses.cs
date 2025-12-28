@@ -84,6 +84,18 @@ namespace DVLD_Buisness
         {
             return clsLicenseClassData.GetLicenseClassIDByClassName(ClassName);
         }
+        public static byte GetDefaultValidityLength(int LicenseClassID)
+        {
+            return clsLicenseClassData.GetDefaultValidityLengthByLicenseClassID(LicenseClassID);
+        }
+        public static decimal GetClassFees(int LicenseClassID)
+        {
+            return clsLicenseClassData.GetClassFeesByLicenseClassID(LicenseClassID);
+        }
+        public static string GetClassName(int LicenseClassID)
+        {
+            return clsLicenseClassData.GetClassNameByLicenseClassID(LicenseClassID);
+        }
         public bool Save()
         {
             switch (Mode)

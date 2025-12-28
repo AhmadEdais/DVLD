@@ -78,7 +78,7 @@ namespace ConsoleApp1
                 this.CreatedByUserID = CreatedByUserID;
 
                 // Load Composition Objects
-                this.ApplicantPersonInfo = clsPerson.FindPersonByID(ApplicantPersonID);
+                this.ApplicantPersonInfo = clsPerson.Find(ApplicantPersonID);
                 this.CreatedByUserInfo = clsUser.FindByUserID(CreatedByUserID);
 
                 this.Mode = enMode.Update;
@@ -167,9 +167,9 @@ namespace ConsoleApp1
                 return clsApplicationData.UpdateStatus(this.ApplicationID, 3); // Assuming 3 is Completed
             }
         // 3. Generic Status Update (If you need to set it to 1 or anything else manually)
-            public bool UpdateStatus(int NewStatus)
+            public static bool UpdateStatus(int ApplicationID , int NewStatus)
             {
-                return clsApplicationData.UpdateStatus(this.ApplicationID, (short)NewStatus);
+                return clsApplicationData.UpdateStatus(ApplicationID, (short)NewStatus);
             }
     }
     

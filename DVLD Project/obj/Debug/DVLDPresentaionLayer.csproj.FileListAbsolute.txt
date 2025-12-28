@@ -39,7 +39,11 @@ C:\Users\LENOVO\OneDrive - just.edu.jo\Visual Studio\DVLD Project\DVLD Project\o
 C:\Users\LENOVO\OneDrive - just.edu.jo\Visual Studio\DVLD Project\DVLD Project\obj\Debug\DVLD_Project.Local_Driving_Licenses.frmListLocalDrivingLicenseApplications.resources
 C:\Users\LENOVO\OneDrive - just.edu.jo\Visual Studio\DVLD Project\DVLD Project\obj\Debug\DVLD_Project.Local_Driving_Licenses.ctrlLocalDriverLicenseApplicationInfo.resources
 C:\Users\LENOVO\OneDrive - just.edu.jo\Visual Studio\DVLD Project\DVLD Project\obj\Debug\DVLD_Project.Local_Driving_Licenses.frmShowLDLApplicationInfo.resources
-C:\Users\LENOVO\OneDrive - just.edu.jo\Visual Studio\DVLD Project\DVLD Project\obj\Debug\DVLD Project.exe.config
 C:\Users\LENOVO\OneDrive - just.edu.jo\Visual Studio\DVLD Project\DVLD Project\obj\Debug\DVLD_Project.Test_Appointments.frmTestAppointments.resources
 C:\Users\LENOVO\OneDrive - just.edu.jo\Visual Studio\DVLD Project\DVLD Project\obj\Debug\DVLD_Project.Test_Appointments.frmAddEditTestAppointment.resources
 C:\Users\LENOVO\OneDrive - just.edu.jo\Visual Studio\DVLD Project\DVLD Project\obj\Debug\DVLD_Project.Test_Appointments.frmTakeTest.resources
+C:\Users\LENOVO\OneDrive - just.edu.jo\Visual Studio\DVLD Project\DVLD Project\obj\Debug\DVLD_Project.License.frmIssueLicense.resources
+C:\Users\LENOVO\OneDrive - just.edu.jo\Visual Studio\DVLD Project\DVLD Project\obj\Debug\DVLD Project.exe.config
+C:\Users\LENOVO\OneDrive - just.edu.jo\Visual Studio\DVLD Project\DVLD Project\obj\Debug\DVLD_Project.License.ctrlLicenseInfo.resources
+C:\Users\LENOVO\OneDrive - just.edu.jo\Visual Studio\DVLD Project\DVLD Project\obj\Debug\DVLD_Project.License.frmShowLicense.resources
+C:\Users\LENOVO\OneDrive - just.edu.jo\Visual Studio\DVLD Project\DVLD Project\obj\Debug\DVLD_Project.License.frmLicenseHistory.resources

@@ -1,5 +1,6 @@
 ﻿using ConsoleApp1;
 using DVLD_Buisness;
+using DVLD_Project.License;
 using DVLD_Project.Test_Appointments;
 using DVLD_Project.Users;
 using System;
@@ -73,6 +74,10 @@ namespace DVLD_Project.Local_Driving_Licenses
             {
 
                 sechduleTestsToolStripMenuItem.Enabled = false;
+                issueDrivingLicenseFirstTimeToolStripMenuItem.Enabled = false;
+                editApplicationToolStripMenuItem.Enabled = false;
+                cancelApplicationToolStripMenuItem.Enabled = false;
+                deleteApplicationToolStripMenuItem.Enabled = false;
                 return;
             }
             showLicenseToolStripMenuItem.Enabled = false;
@@ -411,6 +416,47 @@ namespace DVLD_Project.Local_Driving_Licenses
 
             _EnableAllContextMenuItems();
 
+        }
+
+        private void issueDrivingLicenseFirstTimeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_selectedRowIndex >= 0)
+            {
+                // 2. Get the ID directly from the saved row index
+                //    (Replace "PersonID" with the actual name of your ID column)
+                int LDLAppID = (int)dgvAllLDLApplications.Rows[_selectedRowIndex].Cells["L.D.LAppID"].Value;
+                Form frm = new frmIssueLicense(LDLAppID);
+                frm.ShowDialog();
+                _RefreshLDLApplications();
+            }
+        }
+
+        private void showLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_selectedRowIndex >= 0)
+            {
+                // 2. Get the ID directly from the saved row index
+                //    (Replace "PersonID" with the actual name of your ID column)
+                int LDLAppID = (int)dgvAllLDLApplications.Rows[_selectedRowIndex].Cells["L.D.LAppID"].Value;
+
+                Form frm = new frmShowLicense(clsLocalDrivingLicenseApplication.GetLicenseIDByLocalDrivingLicenseAppID(LDLAppID));
+                frm.ShowDialog();
+                _RefreshLDLApplications();
+            }
+        }
+
+        private void showPersonLicenseHistoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_selectedRowIndex >= 0)
+            {
+                // 2. Get the ID directly from the saved row index
+                //    (Replace "PersonID" with the actual name of your ID column)
+                int LDLAppID = (int)dgvAllLDLApplications.Rows[_selectedRowIndex].Cells["L.D.LAppID"].Value;
+
+                Form frm = new frmLicenseHistory(clsDriver.GetDriverIDByLocalDrivingLicenseAppID(LDLAppID));
+                frm.ShowDialog();
+                _RefreshLDLApplications();
+            }
         }
     }
 }

@@ -48,6 +48,9 @@
   <ItemGroup>
     <Compile Include="clsApplications.cs" />
     <Compile Include="clsApplicationTypes.cs" />
+    <Compile Include="clsDetainedLicenses.cs" />
+    <Compile Include="clsDriver.cs" />
+    <Compile Include="clsInternationalLicenses.cs" />
     <Compile Include="clsLicenseClasses.cs" />
     <Compile Include="clsLiceses.cs" />
     <Compile Include="clsLocalDrivingLicenseApplication.cs" />

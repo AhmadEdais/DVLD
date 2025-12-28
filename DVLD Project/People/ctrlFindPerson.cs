@@ -125,6 +125,7 @@ namespace DVLD_Project.People
             else
             {
                 _Mode = enMode.Update;
+                _SetSettings();
             }
         }
         public void LoadPersonInfo(int PersonID)

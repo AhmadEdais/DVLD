@@ -42,7 +42,7 @@ namespace DVLD_Project
         }
         private void _LoadInfo(int PersonID)
         {
-            _Person = clsPerson.FindPersonByID(PersonID);
+            _Person = clsPerson.Find(PersonID);
             if (_Person != null)
             {
                 lblPersonID.Text = _Person.ID.ToString();

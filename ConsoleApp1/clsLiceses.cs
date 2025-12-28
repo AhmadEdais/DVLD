@@ -92,7 +92,10 @@ public class clsLicense
     {
         return clsLicenseDataAccess.IsLicenseExistByLocalDrivingLicenseApplicationID(LocalDrivingLicenseApplicationID, LicenseClassID);
     }
-
+    public static DataTable GetDriverLicenses(int DriverID)
+    {
+        return clsLicenseDataAccess.GetDriverLicenses(DriverID);
+    }
     public bool Save()
     {
         switch (Mode)

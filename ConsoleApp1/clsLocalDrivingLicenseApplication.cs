@@ -41,7 +41,7 @@ namespace ConsoleApp1
             this.CreatedByUserID = CreatedByUserID;
 
             // 2. Initialize Base Class Composition Objects
-            this.ApplicantPersonInfo = clsPerson.FindPersonByID(ApplicantPersonID);
+            this.ApplicantPersonInfo = clsPerson.Find(ApplicantPersonID);
             this.CreatedByUserInfo = clsUser.FindByUserID(CreatedByUserID);
 
             // 3. Initialize Child Properties
@@ -185,5 +185,29 @@ namespace ConsoleApp1
         {
             return clsLocalDrivingLicenseApplicationData.DoesPassTestType(LocalDrivingLicenseApplicationID, (int)TestTypeID);
         }
+        public static int GetApplicationIDByLocalDrivingLicenseAppID(int LocalDrivingLicenseApplicationID)
+        {
+            return clsLocalDrivingLicenseApplicationData.GetApplicationIDByLocalDrivingLicenseAppID(LocalDrivingLicenseApplicationID);
+        }
+        public static int GetApplicantPersonIDByLocalDrivingLicenseAppID(int LocalDrivingLicenseApplicationID)
+        {
+            return clsLocalDrivingLicenseApplicationData.GetApplicantPersonIDByLocalDrivingLicenseAppID(LocalDrivingLicenseApplicationID);
+        }
+        public static int GetLicenseClassIDByLocalDrivingLicenseAppID(int LocalDrivingLicenseApplicationID)
+        {
+            return clsLocalDrivingLicenseApplicationData.GetLicenseClassIDByLocalDrivingLicenseAppID(LocalDrivingLicenseApplicationID);
+        }
+        public static int GetLicenseIDByLocalDrivingLicenseAppID(int LocalDrivingLicenseApplicationID)
+        {
+            return clsLocalDrivingLicenseApplicationData.GetLicenseIDByLocalDrivingLicenseAppID(LocalDrivingLicenseApplicationID);
+        }
+
+        // Optional: A helper property to call directly on the object
+        public int GetActiveLicenseID()
+        {
+            return clsLocalDrivingLicenseApplicationData.GetLicenseIDByLocalDrivingLicenseAppID(this.LocalDrivingLicenseApplicationID);
+        }
+
     }
+
 }

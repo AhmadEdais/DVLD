@@ -63,7 +63,7 @@ namespace DVLD_Project
                 _Person = new clsPerson();
                 return;
             }
-            _Person = clsPerson.FindPersonByID(_PersonID);
+            _Person = clsPerson.Find(_PersonID);
             lblAddEditPerson.Text = "Edit Person ID " + _Person.ID.ToString();
 
 

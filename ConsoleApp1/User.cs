@@ -39,7 +39,7 @@ namespace ConsoleApp1
             this.UserName = userName;
             this.Password = password;
             this.IsActive = isActive;
-            this.PersonInfo = clsPerson.FindPersonByID(PersonID);
+            this.PersonInfo = clsPerson.Find(PersonID);
         }
         private bool _AddNewUser()
         {

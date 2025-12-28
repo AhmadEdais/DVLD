@@ -180,5 +180,105 @@ namespace DVLD_DataAccess
 
             return LicenseClassID;
         }
+        public static byte GetDefaultValidityLengthByLicenseClassID(int LicenseClassID)
+        {
+            byte DefaultValidityLength = 10; // Default fallback value
+
+            string query = @"SELECT DefaultValidityLength 
+                     FROM LicenseClasses 
+                     WHERE LicenseClassID = @LicenseClassID";
+
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
+
+                    try
+                    {
+                        connection.Open();
+                        object result = command.ExecuteScalar();
+
+                        if (result != null && byte.TryParse(result.ToString(), out byte length))
+                        {
+                            DefaultValidityLength = length;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        // Log error
+                    }
+                }
+            }
+
+            return DefaultValidityLength;
+        }
+        public static decimal GetClassFeesByLicenseClassID(int LicenseClassID)
+        {
+            decimal ClassFees = 0; // Default value
+
+            string query = @"SELECT ClassFees 
+                     FROM LicenseClasses 
+                     WHERE LicenseClassID = @LicenseClassID";
+
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
+
+                    try
+                    {
+                        connection.Open();
+                        object result = command.ExecuteScalar();
+
+                        if (result != null && decimal.TryParse(result.ToString(), out decimal fees))
+                        {
+                            ClassFees = fees;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        // Log error
+                    }
+                }
+            }
+
+            return ClassFees;
+        }
+        public static string GetClassNameByLicenseClassID(int LicenseClassID)
+        {
+            string ClassName = "";
+
+            string query = @"SELECT ClassName 
+                     FROM LicenseClasses 
+                     WHERE LicenseClassID = @LicenseClassID";
+
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
+
+                    try
+                    {
+                        connection.Open();
+
+                        object result = command.ExecuteScalar();
+
+                        if (result != null)
+                        {
+                            ClassName = result.ToString();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        // Log error
+                    }
+                }
+            }
+
+            return ClassName;
+        }
     }
 }

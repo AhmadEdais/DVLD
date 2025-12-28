@@ -534,5 +534,144 @@ namespace DVLDBusinessLayer // Change to your actual DataAccess namespace if dif
 
             return result;
         }
+        public static int GetApplicationIDByLocalDrivingLicenseAppID(int LocalDrivingLicenseApplicationID)
+        {
+            int ApplicationID = -1;
+
+            string query = @"SELECT ApplicationID 
+                     FROM LocalDrivingLicenseApplications 
+                     WHERE LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID";
+
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LocalDrivingLicenseApplicationID);
+
+                    try
+                    {
+                        connection.Open();
+                        object result = command.ExecuteScalar();
+
+                        if (result != null && int.TryParse(result.ToString(), out int fetchedID))
+                        {
+                            ApplicationID = fetchedID;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        // Log error
+                    }
+                }
+            }
+
+            return ApplicationID;
+        }
+        public static int GetApplicantPersonIDByLocalDrivingLicenseAppID(int LocalDrivingLicenseApplicationID)
+        {
+            int PersonID = -1;
+
+            string query = @"SELECT Applications.ApplicantPersonID 
+                     FROM LocalDrivingLicenseApplications 
+                     INNER JOIN Applications 
+                     ON Applications.ApplicationID = LocalDrivingLicenseApplications.ApplicationID
+                     WHERE LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID";
+
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LocalDrivingLicenseApplicationID);
+
+                    try
+                    {
+                        connection.Open();
+                        object result = command.ExecuteScalar();
+
+                        if (result != null && int.TryParse(result.ToString(), out int fetchedID))
+                        {
+                            PersonID = fetchedID;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        // Log error
+                    }
+                }
+            }
+
+            return PersonID;
+        }
+        public static int GetLicenseClassIDByLocalDrivingLicenseAppID(int LocalDrivingLicenseApplicationID)
+        {
+            int LicenseClassID = -1;
+
+            // Optimized Query: We don't need to join Applications table because 
+            // LicenseClassID is already inside LocalDrivingLicenseApplications table.
+            string query = @"SELECT LicenseClassID 
+                     FROM LocalDrivingLicenseApplications 
+                     WHERE LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID";
+
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LocalDrivingLicenseApplicationID);
+
+                    try
+                    {
+                        connection.Open();
+                        object result = command.ExecuteScalar();
+
+                        if (result != null && int.TryParse(result.ToString(), out int fetchedID))
+                        {
+                            LicenseClassID = fetchedID;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        // Log error
+                    }
+                }
+            }
+
+            return LicenseClassID;
+        }
+        public static int GetLicenseIDByLocalDrivingLicenseAppID(int LocalDrivingLicenseApplicationID)
+        {
+            int LicenseID = -1;
+
+            string query = @"SELECT Licenses.LicenseID
+                     FROM Licenses 
+                     INNER JOIN Applications ON Licenses.ApplicationID = Applications.ApplicationID 
+                     INNER JOIN LocalDrivingLicenseApplications ON Applications.ApplicationID = LocalDrivingLicenseApplications.ApplicationID
+                     WHERE LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID";
+
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LocalDrivingLicenseApplicationID);
+
+                    try
+                    {
+                        connection.Open();
+                        object result = command.ExecuteScalar();
+
+                        if (result != null && int.TryParse(result.ToString(), out int fetchedID))
+                        {
+                            LicenseID = fetchedID;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        // Log error
+                    }
+                }
+            }
+
+            return LicenseID;
+        }
+
     }
 }

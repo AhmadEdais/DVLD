@@ -151,4 +151,48 @@ public class clsLicenseDataAccess
     }
 
     // You can add UpdateLicense here following the same logic as AddNewLicense
+
+    public static DataTable GetDriverLicenses(int DriverID)
+    {
+        DataTable dt = new DataTable();
+
+        using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+        {
+            string query = @"SELECT 
+                            Licenses.LicenseID AS [Lic.ID],
+                            Licenses.ApplicationID AS [App.ID],
+                            LicenseClasses.ClassName AS [Class Name],
+                            Licenses.IssueDate AS [Issue Date],
+                            Licenses.ExpirationDate AS [Expiration Date],
+                            Licenses.IsActive AS [Is Active]
+                        FROM Licenses 
+                        INNER JOIN LicenseClasses ON LicenseClasses.LicenseClassID = Licenses.LicenseClass
+                        WHERE DriverID = @DriverID";
+
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@DriverID", DriverID);
+
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    if (reader.HasRows)
+                    {
+                        dt.Load(reader);
+                    }
+
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    // Handle exception (log it)
+                }
+            }
+        }
+
+        return dt;
+    }
+
 }
