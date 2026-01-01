@@ -118,10 +118,22 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnManagePeopleClose.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAYRJREFUWEft
+        ltGNwyAMhiulg3SUGyWj3CZ9TJslOsoNUaQ+5mTHPwcOYJP25aR8ElJkiG2MbTidDv4T5+n5db4/v4c5
+        PIZ7WGT88LiFK83rfz4CGxVj9M2DjE2vC41hDiM5II7xGq1jH6vyVal3d/SPRIUd3AsZ5F3fwlXPmUyv
+        i0TN73jGuotl389/8NHsiQSHHTuXc9ZrWqSOIxL5igbRayBn6o0Gji6uR07MYdRrixSNOZ3YGM/ldhR4
+        93N4aDljOFEzDkhvbS7CtdzK+ooTlnHC1E24zko54TFOoINqeYa7ZOCEdEjLOOHKA1KmZTWkWhYzYkB6
+        ixZnlM63BMKOku35R8szOFONi2Rz5pXE1DQrDOBG03KwMQ4cTriqoJUoVePAcMJVYTUlpnFg/J/Kqui7
+        wG0cFJzw7R6QAnUbuo2DpJewrkZelUkajZ7qIeaUp7lteNOJ915EAHd5hyLsulZN/STvOx5rrxijQzKf
+        PNd3R62NJGP6/OZ2jAjhqX5w0MkvLkjlQBhPaBAAAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAZAAAAGQCAYAAACAvzbMAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAA/7JJREFUeF7s/YdzVHe6/w9+/4Kpra2tra2tLdfur743fO/M+N47d3Jggu0ZjwPO
+        vAAADrwBlbxySQAA/7JJREFUeF7s/YdzVHe6/w9+/4Kpra2tra2tLdfur743fO/M+N47d3Jggu0ZjwPO
         2cYZAzbYmAwmYzKIIBRAoIAEyjnnHFvdUiu2UivnnAP4vfV8Tp/W0eecjmq1sH2eqncJDpKQTnc/r37i
         538B+F+qVKlSpUqVo5JdUKVKlSpVquyR7IIqVapUqVJlj2QXVKlSpUqVKnsku6BKlSpVqlTZI9kFVapU
         qVKlyh7JLqhSpUqVKlX2SHZBlSpVqlSpskeyC6pUqVKlSpU9kl1QpUqVKlWq7JHsgipVqlSpUmWPZBdU
@@ -1989,18 +2001,6 @@
         r6qpz+B/Fn9SF17l838KxyXVd5rxglRSSSWVVFLNRzNekEoqqaSSSqr5aMYLUkkllVRSSTUfzXhBKqmk
         kkoqqeajGS9IJZVUUkkl1Xw04wWppJJKKqmkmo9mvCCVVFJJJZVU89GMF6SSSiqppJJqPvr/iOoySjt+
         8yMAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="btnManagePeopleClose.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAYRJREFUWEft
-        ltGNwyAMhiulg3SUGyWj3CZ9TJslOsoNUaQ+5mTHPwcOYJP25aR8ElJkiG2MbTidDv4T5+n5db4/v4c5
-        PIZ7WGT88LiFK83rfz4CGxVj9M2DjE2vC41hDiM5II7xGq1jH6vyVal3d/SPRIUd3AsZ5F3fwlXPmUyv
-        i0TN73jGuotl389/8NHsiQSHHTuXc9ZrWqSOIxL5igbRayBn6o0Gji6uR07MYdRrixSNOZ3YGM/ldhR4
-        93N4aDljOFEzDkhvbS7CtdzK+ooTlnHC1E24zko54TFOoINqeYa7ZOCEdEjLOOHKA1KmZTWkWhYzYkB6
-        ixZnlM63BMKOku35R8szOFONi2Rz5pXE1DQrDOBG03KwMQ4cTriqoJUoVePAcMJVYTUlpnFg/J/Kqui7
-        wG0cFJzw7R6QAnUbuo2DpJewrkZelUkajZ7qIeaUp7lteNOJ915EAHd5hyLsulZN/STvOx5rrxijQzKf
-        PNd3R62NJGP6/OZ2jAjhqX5w0MkvLkjlQBhPaBAAAAAASUVORK5CYII=
 </value>
   </data>
 </root>

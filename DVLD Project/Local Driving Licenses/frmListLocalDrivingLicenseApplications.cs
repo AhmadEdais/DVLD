@@ -21,9 +21,11 @@ namespace DVLD_Project.Local_Driving_Licenses
         private int _selectedRowIndex = -1;
         DataTable _dtAllLDLApplications;
         DataView _dvLDLApplications;
+   
         public frmListLocalDrivingLicenseApplications()
         {
             InitializeComponent();
+            
         }
         private void _HideFilterControls()
         {
@@ -33,6 +35,8 @@ namespace DVLD_Project.Local_Driving_Licenses
         private void _StartUpSettings()
         {
             cbFilterBy.SelectedItem = "None";
+            
+            
             _HideFilterControls();
         }
         private void _RefreshLDLApplications()
@@ -127,31 +131,41 @@ namespace DVLD_Project.Local_Driving_Licenses
         {
             this.Close();
         }
+        private void _SetWidth()
+        {
+            if(dgvAllLDLApplications.Columns.Count > 0)
+            {
+                
+                // ID Column: Increased slightly to ensure the header "L.D.LAppID" fits comfortably
+                dgvAllLDLApplications.Columns["L.D.LAppID"].Width = 120;
+
+                // Driving Class: Increased to 280 to fit long names like "Class 7 - Truck and heavy vehicle"
+                dgvAllLDLApplications.Columns["Driving Class"].Width = 280;
+
+                // National No: 90 is standard for this short text
+                dgvAllLDLApplications.Columns["National No"].Width = 120;
+
+                // Full Name: Increased to 350 because names in your region are often 4 parts long
+                dgvAllLDLApplications.Columns["Full Name"].Width = 300;
+
+                // Application Date: 170 fits the "dd-MMM-yy hh:mm tt" format perfectly
+                dgvAllLDLApplications.Columns["Application Date"].Width = 170;
+
+                // Passed Tests: Increased to 100 so the header "Passed Tests" doesn't wrap or get cut off
+                dgvAllLDLApplications.Columns["Passed Tests"].Width = 130;
+
+                    // Status: 100 is plenty for "New", "Cancelled", or "Completed"
+                    dgvAllLDLApplications.Columns["Status"].Width = 100;
+              
+            }
+        }
 
         private void frmListLocalDrivingLicenseApplications_Load(object sender, EventArgs e)
         {
             _StartUpSettings();
             _RefreshLDLApplications();
-            // ID Column: Increased slightly to ensure the header "L.D.LAppID" fits comfortably
-            dgvAllLDLApplications.Columns["L.D.LAppID"].Width = 120;
+            _SetWidth();
 
-            // Driving Class: Increased to 280 to fit long names like "Class 7 - Truck and heavy vehicle"
-            dgvAllLDLApplications.Columns["Driving Class"].Width = 280;
-
-            // National No: 90 is standard for this short text
-            dgvAllLDLApplications.Columns["National No"].Width = 120;
-
-            // Full Name: Increased to 350 because names in your region are often 4 parts long
-            dgvAllLDLApplications.Columns["Full Name"].Width = 300;
-
-            // Application Date: 170 fits the "dd-MMM-yy hh:mm tt" format perfectly
-            dgvAllLDLApplications.Columns["Application Date"].Width = 170;
-
-            // Passed Tests: Increased to 100 so the header "Passed Tests" doesn't wrap or get cut off
-            dgvAllLDLApplications.Columns["Passed Tests"].Width = 130;
-
-            // Status: 100 is plenty for "New", "Cancelled", or "Completed"
-            dgvAllLDLApplications.Columns["Status"].Width = 100;
         }
 
         private void cbFilterBy_SelectedIndexChanged(object sender, EventArgs e)

@@ -117,6 +117,11 @@ namespace DVLD_Project.Local_Driving_Licenses
                 MessageBox.Show("An application for this person with the selected license class already exists.","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
             }
+            if(clsLicense.IsLicenseExistByPersonID(_PersonID, cbAllLicenseClasses.SelectedIndex + 1))
+            {
+                MessageBox.Show("This person already holds a license for the selected class.","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                return;
+            }
             _SetInfo();
             if (_LocalDrivingLicenseApplication.Save())
             {

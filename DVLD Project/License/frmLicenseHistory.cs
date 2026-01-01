@@ -22,7 +22,7 @@ namespace DVLD_Project.License
         {
             InitializeComponent();
             _DriverID = DriverID;
-            _Driver = clsDriver.FindByDriverID(_DriverID);
+            _Driver = clsDriver.Find(_DriverID);
 
         }
 

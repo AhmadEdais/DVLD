@@ -1,5 +1,6 @@
 ﻿using ConsoleApp1;
 using DVLD_Buisness;
+using DVLD_Project.License;
 using DVLDBusinessLayer;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,17 @@ namespace DVLD_Project.Local_Driving_Licenses
         }
         private void _SetControls()
         {
-            llblShowLicenseInfo.Enabled = false;
+
+            if (clsLicense.IsLicenseExistByLocalDrivingLicenseApplicationID(_LocalDrivingLicenseApplication.LocalDrivingLicenseApplicationID
+                , _LocalDrivingLicenseApplication.LicenseClassID))
+                
+            {
+                llblShowLicenseInfo.Enabled = true;
+            }
+            else
+            {
+                llblShowLicenseInfo.Enabled = false;
+            }
         }
         private void _FillDetails()
         {
@@ -61,6 +72,12 @@ namespace DVLD_Project.Local_Driving_Licenses
         private void llblViewPersonInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Form frm = new frmPersonDetails(_LocalDrivingLicenseApplication.ApplicantPersonID);
+            frm.ShowDialog();
+        }
+
+        private void llblShowLicenseInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Form frm = new frmShowLicense(clsLocalDrivingLicenseApplication.GetLicenseIDByLocalDrivingLicenseAppID(_LocalDrivingLicenseApplication.LocalDrivingLicenseApplicationID));
             frm.ShowDialog();
         }
     }

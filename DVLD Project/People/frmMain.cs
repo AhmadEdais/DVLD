@@ -1,6 +1,7 @@
 ﻿using ConsoleApp1;
 using DVLD_Project.Applications.Manage_Test_Types;
 using DVLD_Project.Divers;
+using DVLD_Project.License;
 using DVLD_Project.Local_Driving_Licenses;
 using DVLD_Project.LogIn;
 using DVLD_Project.Manage_Application_Type;
@@ -92,8 +93,6 @@ namespace DVLD_Project
 
         private void newDrivingLicenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form frm = new frmAddLocalDrivingLicense();
-            frm.ShowDialog();
         }
 
         private void localDrivingLicenseApplicationsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -106,6 +105,37 @@ namespace DVLD_Project
         {
             Form frm = new frmListDrivers();
             frm.ShowDialog();   
+        }
+
+        private void localDrivingLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            Form frm = new frmAddLocalDrivingLicense();
+            frm.ShowDialog();
+        }
+
+        private void internationalDrivingLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form frm = new frmNewInternationalLicenseApplication();
+            frm.ShowDialog();
+        }
+
+        private void internationalLicenseApplicationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form frm = new frmListInternationalLicenses();
+            frm.ShowDialog();
+        }
+
+        private void retakeTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form frm = new frmListLocalDrivingLicenseApplications();
+            frm.ShowDialog();
+        }
+
+        private void renewDrivingLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form frm  = new frmRenewLocalDrivingLicense();
+            frm.ShowDialog();
         }
     }
 }

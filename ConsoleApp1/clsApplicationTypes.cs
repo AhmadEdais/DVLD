@@ -16,6 +16,17 @@ namespace ConsoleApp1
         public int ApplicationTypeID { get; set; }
         public string ApplicationTypeTitle { get; set; }
         public decimal ApplicationTypeFee { get; set; }
+        public enum enApplicationType
+        {
+            NewLocalLicenseApplication = 1,
+            RenewLicenseApplication = 2,
+            ReplacmentForLost = 3,
+            ReplacementForDamaged = 4,
+            ReleaseDetained = 5,
+            NewInternationalLicense = 6,
+            RetakeTest = 7
+
+        }
         public clsApplicationTypes()
         {
             ApplicationTypeID = -1;

@@ -43,7 +43,7 @@
             this.txtFilterByValue = new System.Windows.Forms.TextBox();
             this.cbFilterBy = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.lblManagePeople = new System.Windows.Forms.Label();
+            this.lblManageApplications = new System.Windows.Forms.Label();
             this.lblRecordsNumber = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cbStatus = new System.Windows.Forms.ComboBox();
@@ -61,9 +61,11 @@
             this.showPersonLicenseHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnAddNewLDLApplication = new System.Windows.Forms.Button();
             this.pbManageUsers = new System.Windows.Forms.PictureBox();
+            this.pbInternational = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllLDLApplications)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbManageUsers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInternational)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvAllLDLApplications
@@ -120,7 +122,7 @@
             this.toolStripSeparator6,
             this.showPersonLicenseHistoryToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(309, 372);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(309, 344);
             this.contextMenuStrip1.Closing += new System.Windows.Forms.ToolStripDropDownClosingEventHandler(this.contextMenuStrip1_Closing);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
@@ -191,15 +193,15 @@
             this.label1.TabIndex = 11;
             this.label1.Text = "Filter By: ";
             // 
-            // lblManagePeople
+            // lblManageApplications
             // 
-            this.lblManagePeople.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblManagePeople.ForeColor = System.Drawing.Color.Maroon;
-            this.lblManagePeople.Location = new System.Drawing.Point(473, 199);
-            this.lblManagePeople.Name = "lblManagePeople";
-            this.lblManagePeople.Size = new System.Drawing.Size(696, 51);
-            this.lblManagePeople.TabIndex = 10;
-            this.lblManagePeople.Text = "Local Driving License Applications";
+            this.lblManageApplications.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblManageApplications.ForeColor = System.Drawing.Color.Maroon;
+            this.lblManageApplications.Location = new System.Drawing.Point(473, 199);
+            this.lblManageApplications.Name = "lblManageApplications";
+            this.lblManageApplications.Size = new System.Drawing.Size(696, 51);
+            this.lblManageApplications.TabIndex = 10;
+            this.lblManageApplications.Text = "Local Driving License Applications";
             // 
             // lblRecordsNumber
             // 
@@ -373,6 +375,14 @@
             this.pbManageUsers.TabIndex = 9;
             this.pbManageUsers.TabStop = false;
             // 
+            // pbInternational
+            // 
+            this.pbInternational.Location = new System.Drawing.Point(898, 39);
+            this.pbInternational.Name = "pbInternational";
+            this.pbInternational.Size = new System.Drawing.Size(77, 79);
+            this.pbInternational.TabIndex = 21;
+            this.pbInternational.TabStop = false;
+            // 
             // frmListLocalDrivingLicenseApplications
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -380,6 +390,7 @@
             this.AutoSize = true;
             this.CancelButton = this.btnManagePeopleClose;
             this.ClientSize = new System.Drawing.Size(1847, 841);
+            this.Controls.Add(this.pbInternational);
             this.Controls.Add(this.cbStatus);
             this.Controls.Add(this.btnManagePeopleClose);
             this.Controls.Add(this.lblRecordsNumber);
@@ -389,7 +400,7 @@
             this.Controls.Add(this.txtFilterByValue);
             this.Controls.Add(this.cbFilterBy);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.lblManagePeople);
+            this.Controls.Add(this.lblManageApplications);
             this.Controls.Add(this.pbManageUsers);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -401,6 +412,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllLDLApplications)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbManageUsers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInternational)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -413,7 +425,7 @@
         private System.Windows.Forms.TextBox txtFilterByValue;
         private System.Windows.Forms.ComboBox cbFilterBy;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblManagePeople;
+        private System.Windows.Forms.Label lblManageApplications;
         private System.Windows.Forms.PictureBox pbManageUsers;
         private System.Windows.Forms.Button btnManagePeopleClose;
         private System.Windows.Forms.Label lblRecordsNumber;
@@ -437,5 +449,6 @@
         private System.Windows.Forms.ToolStripMenuItem showLicenseToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripMenuItem showPersonLicenseHistoryToolStripMenuItem;
+        private System.Windows.Forms.PictureBox pbInternational;
     }
 }

@@ -36,6 +36,7 @@
             // 
             // ctrlPersonDetails1
             // 
+            this.ctrlPersonDetails1.EditLinkVisible = true;
             this.ctrlPersonDetails1.Location = new System.Drawing.Point(12, 113);
             this.ctrlPersonDetails1.Name = "ctrlPersonDetails1";
             this.ctrlPersonDetails1.Size = new System.Drawing.Size(1112, 413);
@@ -55,6 +56,7 @@
             // 
             // btnClose
             // 
+            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
@@ -72,6 +74,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(1130, 615);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label1);

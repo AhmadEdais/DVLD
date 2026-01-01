@@ -34,7 +34,7 @@ public class clsDriver
         Mode = enMode.Update;
     }
 
-    public static clsDriver FindByDriverID(int DriverID)
+    public static clsDriver Find(int DriverID)
     {
         int PersonID = -1;
         int CreatedByUserID = -1;

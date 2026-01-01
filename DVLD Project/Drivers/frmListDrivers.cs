@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ConsoleApp1;
+using DVLD_Project.License;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +14,7 @@ namespace DVLD_Project.Divers
 {
     public partial class frmListDrivers : Form
     {
+        private int _selectedRowIndex = -1;
         DataTable _dtAllDrivers;
         DataView _dvDrivers;
         public frmListDrivers()
@@ -127,6 +130,45 @@ namespace DVLD_Project.Divers
 
             // 4. Update the Label Count
             lblRecordsNumber.Text = dgvAllDrivers.Rows.Count.ToString();
+        }
+
+        private void showPersonDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_selectedRowIndex >= 0)
+            {
+                // 2. Get the ID directly from the saved row index
+                //    (Replace "PersonID" with the actual name of your ID column)
+                int PersonID = (int)dgvAllDrivers.Rows[_selectedRowIndex].Cells["Person ID"].Value;
+                Form frm = new frmPersonDetails(PersonID);
+                frm.ShowDialog();
+                _RefreshData();
+            }
+        }
+
+        private void showPersonLicenseHistoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_selectedRowIndex >= 0)
+            {
+                // 2. Get the ID directly from the saved row index
+                //    (Replace "PersonID" with the actual name of your ID column)
+                int DriverID = (int)dgvAllDrivers.Rows[_selectedRowIndex].Cells["Driver ID"].Value;
+                Form frm = new frmLicenseHistory(DriverID);
+                frm.ShowDialog();
+                _RefreshData();
+            }
+        }
+
+        private void dgvAllDrivers_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right && e.RowIndex >= 0)
+            {
+                // Save the index
+                _selectedRowIndex = e.RowIndex;
+
+                // Optional: highlight the right-clicked row
+                dgvAllDrivers.ClearSelection();
+                dgvAllDrivers.Rows[e.RowIndex].Selected = true;
+            }
         }
     }
 }

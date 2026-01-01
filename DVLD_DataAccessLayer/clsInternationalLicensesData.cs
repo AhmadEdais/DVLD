@@ -55,7 +55,11 @@ public class clsInternationalLicenseData
     {
         int InternationalLicenseID = -1;
 
-        string query = @"INSERT INTO InternationalLicenses
+        string query = @" UPDATE InternationalLicenses
+                          set IsActive = 0
+                        WHERE DriverID = @DriverID AND IsActive = 1;    
+
+                                INSERT INTO InternationalLicenses
                                (ApplicationID, DriverID, IssuedUsingLocalLicenseID,
                                 IssueDate, ExpirationDate, IsActive, CreatedByUserID)
                          VALUES
@@ -141,39 +145,6 @@ public class clsInternationalLicenseData
     }
 
     // Method 4: Get All Licenses
-    public static DataTable GetAllInternationalLicenses()
-    {
-        DataTable dt = new DataTable();
-        string query = @"SELECT InternationalLicenseID, ApplicationID, DriverID,
-                                IssuedUsingLocalLicenseID, IssueDate, 
-                                ExpirationDate, IsActive 
-                         FROM InternationalLicenses 
-                         ORDER BY IsActive, ExpirationDate DESC";
-
-        using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-        {
-            using (SqlCommand command = new SqlCommand(query, connection))
-            {
-                try
-                {
-                    connection.Open();
-                    SqlDataReader reader = command.ExecuteReader();
-
-                    if (reader.HasRows)
-                    {
-                        dt.Load(reader);
-                    }
-                    reader.Close();
-                }
-                catch (Exception ex)
-                {
-                    // Log Error
-                }
-            }
-        }
-
-        return dt;
-    }
 
     // Method 5: Get Licenses by Driver ID
     public static DataTable GetDriverInternationalLicenses(int DriverID)
@@ -255,4 +226,78 @@ public class clsInternationalLicenseData
 
         return ActiveLicenseID;
     }
+    public static bool IsInternationalLicenseExistByLocalLicenseID(int LocalLicenseID)
+    {
+        bool isFound = false;
+
+        string query = @"SELECT Found=1 
+                     FROM InternationalLicenses 
+                     WHERE IssuedUsingLocalLicenseID = @LocalLicenseID 
+                     AND IsActive = 1";
+        using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+        {
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@LocalLicenseID", LocalLicenseID);
+
+                try
+                {
+                    connection.Open();
+                    object result = command.ExecuteScalar();
+
+                    if (result != null)
+                    {
+                        isFound = true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Log Error
+                    isFound = false;
+                }
+            }
+        }
+
+        return isFound;
+    }
+    public static DataTable GetAllInternationalLicenses()
+    {
+        DataTable dt = new DataTable();
+
+        string query = @"
+        SELECT 
+            InternationalLicenseID AS [Int.License ID], 
+            ApplicationID AS [Application ID], 
+            DriverID AS [Driver ID], 
+            IssuedUsingLocalLicenseID AS [L.License ID], 
+            IssueDate AS [Issue Date], 
+            ExpirationDate AS [Expiration Date], 
+            IsActive AS [Is Active]
+        FROM InternationalLicenses 
+        ORDER BY IsActive, ExpirationDate DESC";
+
+        using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+        {
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    if (reader.HasRows)
+                    {
+                        dt.Load(reader);
+                    }
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    // Log Error
+                }
+            }
+        }
+
+        return dt;
+    }   
 }

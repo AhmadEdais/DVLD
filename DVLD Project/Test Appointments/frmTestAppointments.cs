@@ -59,14 +59,14 @@ namespace DVLD_Project.Test_Appointments
         {
             _SetSettings(_enTestType);
             _RefreshAppointmentList(_enTestType);
-            if(dgvAllAppointments.Columns.Count > 0)
+            if (dgvAllAppointments.Columns.Count > 0)
             {
                 dgvAllAppointments.Columns["Appointment ID"].Width = 150;
                 dgvAllAppointments.Columns["Appointment Date"].Width = 180;
                 dgvAllAppointments.Columns["Paid Fees"].Width = 130;
                 dgvAllAppointments.Columns["Is Locked"].Width = 120;
             }
-            
+
 
         }
 
@@ -80,9 +80,9 @@ namespace DVLD_Project.Test_Appointments
             if (clsTestAppointments.IsThereAnActiveScheduledTest(_LocalDrivingLicenseApplicationID, (int)_enTestType))
             {
                 MessageBox.Show("There is already an active scheduled Test for this application.", "Cannot Schedule", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                
+                return;
             }
-            if(clsLocalDrivingLicenseApplication.DoesPassTestType(_LocalDrivingLicenseApplicationID,_enTestType))
+            if (clsLocalDrivingLicenseApplication.DoesPassTestType(_LocalDrivingLicenseApplicationID, _enTestType))
             {
                 MessageBox.Show("The applicant has already passed this test type. Cannot schedule another appointment.", "Cannot Schedule", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -98,11 +98,11 @@ namespace DVLD_Project.Test_Appointments
             if (_selectedRowIndex >= 0)
             {
                 bool isLocked = (bool)dgvAllAppointments.Rows[_selectedRowIndex].Cells["Is Locked"].Value;
-               
+
                 // 2. Get the ID directly from the saved row index
                 //    (Replace "PersonID" with the actual name of your ID column)
                 int AppointmentID = (int)dgvAllAppointments.Rows[_selectedRowIndex].Cells["Appointment ID"].Value;
-                Form frm = new frmAddEditTestAppointment(_LocalDrivingLicenseApplicationID, _enTestType, AppointmentID,isLocked);
+                Form frm = new frmAddEditTestAppointment(_LocalDrivingLicenseApplicationID, _enTestType, AppointmentID, isLocked);
                 frm.ShowDialog();
                 _RefreshAppointmentList(_enTestType);
             }
@@ -125,11 +125,30 @@ namespace DVLD_Project.Test_Appointments
         {
             if (_selectedRowIndex >= 0)
             {
-               
+
                 int AppointmentID = (int)dgvAllAppointments.Rows[_selectedRowIndex].Cells["Appointment ID"].Value;
                 Form frm = new frmTakeTest(AppointmentID);
                 frm.ShowDialog();
                 _RefreshAppointmentList(_enTestType);
+                ctrlLocalDriverLicenseApplicationInfo1.SetApplicationID(_LocalDrivingLicenseApplicationID);
+            }
+        }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+            if (_selectedRowIndex >= 0)
+            {
+                bool isLocked = (bool)dgvAllAppointments.Rows[_selectedRowIndex].Cells["Is Locked"].Value;
+                if (isLocked)
+                {
+                    editTestToolStripMenuItem.Enabled = false;
+                    takeTestToolStripMenuItem.Enabled = false;
+                }
+                else
+                {
+                    editTestToolStripMenuItem.Enabled = true;
+                    takeTestToolStripMenuItem.Enabled = true;
+                }
             }
         }
     }

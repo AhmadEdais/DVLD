@@ -194,5 +194,114 @@ public class clsLicenseDataAccess
 
         return dt;
     }
+    public static bool IsLicenseExistByPersonID(int PersonID, int LicenseClassID)
+    {
+        bool isFound = false;
+
+        // We select TOP 1 Found=1 so if we find even one record, we return 1.
+        // I added 'AND IsActive = 1' to ensure we only check for valid, active licenses.
+        string query = @"SELECT TOP 1 Found=1
+                     FROM Licenses 
+                     INNER JOIN Drivers ON Licenses.DriverID = Drivers.DriverID 
+                     INNER JOIN People ON Drivers.PersonID = People.PersonID
+                     WHERE People.PersonID = @PersonID 
+                     AND Licenses.LicenseClass = @LicenseClassID
+                     AND Licenses.IsActive = 1";
+
+        using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+        {
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@PersonID", PersonID);
+                command.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
+
+                try
+                {
+                    connection.Open();
+                    object result = command.ExecuteScalar();
+
+                    if (result != null)
+                    {
+                        isFound = true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Log Error
+                    isFound = false;
+                }
+            }
+        }
+
+        return isFound;
+    }
+    public static bool IsLicenseExist(int LicenseID)
+    {
+        bool isFound = false;
+
+        string query = "SELECT Found=1 FROM Licenses WHERE LicenseID = @LicenseID";
+
+        using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+        {
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@LicenseID", LicenseID);
+
+                try
+                {
+                    connection.Open();
+                    object result = command.ExecuteScalar();
+
+                    if (result != null)
+                    {
+                        isFound = true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Log Error
+                    isFound = false;
+                }
+            }
+        }
+
+        return isFound;
+    }
+    public static bool DeactivateLicense(int LicenseID)
+    {
+
+        int rowsAffected = 0;
+        SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+        string query = @"UPDATE Licenses
+                           SET 
+                              IsActive = 0
+                             
+                         WHERE LicenseID=@LicenseID";
+
+        SqlCommand command = new SqlCommand(query, connection);
+
+        command.Parameters.AddWithValue("@LicenseID", LicenseID);
+
+
+        try
+        {
+            connection.Open();
+            rowsAffected = command.ExecuteNonQuery();
+
+        }
+        catch (Exception ex)
+        {
+            //Console.WriteLine("Error: " + ex.Message);
+            return false;
+        }
+
+        finally
+        {
+            connection.Close();
+        }
+
+        return (rowsAffected > 0);
+    }
 
 }

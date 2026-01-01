@@ -31,31 +31,31 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLicenseHistory));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tpLocal = new System.Windows.Forms.TabPage();
-            this.tPInternational = new System.Windows.Forms.TabPage();
             this.lblRecordsNumber = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tpLocal = new System.Windows.Forms.TabPage();
+            this.dgvLocalLicesesHistory = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tPInternational = new System.Windows.Forms.TabPage();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dgvInternationalLicensesHistory = new System.Windows.Forms.DataGridView();
             this.lblManagePeople = new System.Windows.Forms.Label();
             this.btnManagePeopleClose = new System.Windows.Forms.Button();
-            this.dgvInternationalLicensesHistory = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dgvLocalLicesesHistory = new System.Windows.Forms.DataGridView();
-            this.label3 = new System.Windows.Forms.Label();
             this.ctrlFindPerson1 = new DVLD_Project.People.ctrlFindPerson();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tpLocal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLocalLicesesHistory)).BeginInit();
             this.tPInternational.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInternationalLicensesHistory)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLocalLicesesHistory)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(8, 237);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 179);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(246, 265);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -68,12 +68,32 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.tabControl1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 613);
+            this.groupBox1.Location = new System.Drawing.Point(12, 576);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1333, 346);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Driver Licenses";
+            // 
+            // lblRecordsNumber
+            // 
+            this.lblRecordsNumber.AutoSize = true;
+            this.lblRecordsNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRecordsNumber.Location = new System.Drawing.Point(157, 303);
+            this.lblRecordsNumber.Name = "lblRecordsNumber";
+            this.lblRecordsNumber.Size = new System.Drawing.Size(36, 25);
+            this.lblRecordsNumber.TabIndex = 20;
+            this.lblRecordsNumber.Text = "??";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(29, 303);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(122, 25);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "# Records: ";
             // 
             // tabControl1
             // 
@@ -97,6 +117,30 @@
             this.tpLocal.Text = "Local";
             this.tpLocal.UseVisualStyleBackColor = true;
             // 
+            // dgvLocalLicesesHistory
+            // 
+            this.dgvLocalLicesesHistory.AllowUserToAddRows = false;
+            this.dgvLocalLicesesHistory.AllowUserToDeleteRows = false;
+            this.dgvLocalLicesesHistory.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgvLocalLicesesHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLocalLicesesHistory.Location = new System.Drawing.Point(11, 43);
+            this.dgvLocalLicesesHistory.Name = "dgvLocalLicesesHistory";
+            this.dgvLocalLicesesHistory.ReadOnly = true;
+            this.dgvLocalLicesesHistory.RowHeadersWidth = 51;
+            this.dgvLocalLicesesHistory.RowTemplate.Height = 24;
+            this.dgvLocalLicesesHistory.Size = new System.Drawing.Size(1237, 165);
+            this.dgvLocalLicesesHistory.TabIndex = 21;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(6, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(236, 25);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "Local Licenses History:";
+            // 
             // tPInternational
             // 
             this.tPInternational.Controls.Add(this.label3);
@@ -109,49 +153,15 @@
             this.tPInternational.Text = "International";
             this.tPInternational.UseVisualStyleBackColor = true;
             // 
-            // lblRecordsNumber
+            // label3
             // 
-            this.lblRecordsNumber.AutoSize = true;
-            this.lblRecordsNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRecordsNumber.Location = new System.Drawing.Point(157, 303);
-            this.lblRecordsNumber.Name = "lblRecordsNumber";
-            this.lblRecordsNumber.Size = new System.Drawing.Size(36, 25);
-            this.lblRecordsNumber.TabIndex = 20;
-            this.lblRecordsNumber.Text = "??";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(29, 303);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(122, 25);
-            this.label2.TabIndex = 19;
-            this.label2.Text = "# Records: ";
-            // 
-            // lblManagePeople
-            // 
-            this.lblManagePeople.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblManagePeople.ForeColor = System.Drawing.Color.Maroon;
-            this.lblManagePeople.Location = new System.Drawing.Point(462, 29);
-            this.lblManagePeople.Name = "lblManagePeople";
-            this.lblManagePeople.Size = new System.Drawing.Size(576, 51);
-            this.lblManagePeople.TabIndex = 11;
-            this.lblManagePeople.Text = "License History";
-            // 
-            // btnManagePeopleClose
-            // 
-            this.btnManagePeopleClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnManagePeopleClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnManagePeopleClose.Image = ((System.Drawing.Image)(resources.GetObject("btnManagePeopleClose.Image")));
-            this.btnManagePeopleClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnManagePeopleClose.Location = new System.Drawing.Point(1192, 975);
-            this.btnManagePeopleClose.Name = "btnManagePeopleClose";
-            this.btnManagePeopleClose.Size = new System.Drawing.Size(153, 52);
-            this.btnManagePeopleClose.TabIndex = 21;
-            this.btnManagePeopleClose.Text = "Close";
-            this.btnManagePeopleClose.UseVisualStyleBackColor = true;
-            this.btnManagePeopleClose.Click += new System.EventHandler(this.btnManagePeopleClose_Click);
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(6, 14);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(303, 25);
+            this.label3.TabIndex = 21;
+            this.label3.Text = "International Licenses History:";
             // 
             // dgvInternationalLicensesHistory
             // 
@@ -167,44 +177,35 @@
             this.dgvInternationalLicensesHistory.Size = new System.Drawing.Size(1248, 165);
             this.dgvInternationalLicensesHistory.TabIndex = 0;
             // 
-            // label1
+            // lblManagePeople
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 15);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(236, 25);
-            this.label1.TabIndex = 20;
-            this.label1.Text = "Local Licenses History:";
+            this.lblManagePeople.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblManagePeople.ForeColor = System.Drawing.Color.Maroon;
+            this.lblManagePeople.Location = new System.Drawing.Point(461, 9);
+            this.lblManagePeople.Name = "lblManagePeople";
+            this.lblManagePeople.Size = new System.Drawing.Size(576, 51);
+            this.lblManagePeople.TabIndex = 11;
+            this.lblManagePeople.Text = "License History";
             // 
-            // dgvLocalLicesesHistory
+            // btnManagePeopleClose
             // 
-            this.dgvLocalLicesesHistory.AllowUserToAddRows = false;
-            this.dgvLocalLicesesHistory.AllowUserToDeleteRows = false;
-            this.dgvLocalLicesesHistory.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dgvLocalLicesesHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLocalLicesesHistory.Location = new System.Drawing.Point(11, 43);
-            this.dgvLocalLicesesHistory.Name = "dgvLocalLicesesHistory";
-            this.dgvLocalLicesesHistory.ReadOnly = true;
-            this.dgvLocalLicesesHistory.RowHeadersWidth = 51;
-            this.dgvLocalLicesesHistory.RowTemplate.Height = 24;
-            this.dgvLocalLicesesHistory.Size = new System.Drawing.Size(1237, 165);
-            this.dgvLocalLicesesHistory.TabIndex = 21;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(6, 14);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(303, 25);
-            this.label3.TabIndex = 21;
-            this.label3.Text = "International Licenses History:";
+            this.btnManagePeopleClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnManagePeopleClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnManagePeopleClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnManagePeopleClose.Image = ((System.Drawing.Image)(resources.GetObject("btnManagePeopleClose.Image")));
+            this.btnManagePeopleClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnManagePeopleClose.Location = new System.Drawing.Point(1192, 928);
+            this.btnManagePeopleClose.Name = "btnManagePeopleClose";
+            this.btnManagePeopleClose.Size = new System.Drawing.Size(153, 52);
+            this.btnManagePeopleClose.TabIndex = 21;
+            this.btnManagePeopleClose.Text = "Close";
+            this.btnManagePeopleClose.UseVisualStyleBackColor = true;
+            this.btnManagePeopleClose.Click += new System.EventHandler(this.btnManagePeopleClose_Click);
             // 
             // ctrlFindPerson1
             // 
             this.ctrlFindPerson1.FilterEnabled = true;
-            this.ctrlFindPerson1.Location = new System.Drawing.Point(260, 74);
+            this.ctrlFindPerson1.Location = new System.Drawing.Point(260, 48);
             this.ctrlFindPerson1.Name = "ctrlFindPerson1";
             this.ctrlFindPerson1.ShowAddPerson = true;
             this.ctrlFindPerson1.Size = new System.Drawing.Size(1107, 549);
@@ -215,6 +216,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.CancelButton = this.btnManagePeopleClose;
             this.ClientSize = new System.Drawing.Size(1393, 1055);
             this.Controls.Add(this.btnManagePeopleClose);
             this.Controls.Add(this.lblManagePeople);
@@ -222,8 +224,9 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.ctrlFindPerson1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Location = new System.Drawing.Point(250, 0);
             this.Name = "frmLicenseHistory";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "License History";
             this.Load += new System.EventHandler(this.frmLicenseHistory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -232,10 +235,10 @@
             this.tabControl1.ResumeLayout(false);
             this.tpLocal.ResumeLayout(false);
             this.tpLocal.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLocalLicesesHistory)).EndInit();
             this.tPInternational.ResumeLayout(false);
             this.tPInternational.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInternationalLicensesHistory)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLocalLicesesHistory)).EndInit();
             this.ResumeLayout(false);
 
         }

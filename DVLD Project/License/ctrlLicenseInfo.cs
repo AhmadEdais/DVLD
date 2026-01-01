@@ -17,6 +17,8 @@ namespace DVLD_Project.License
         int _LicenseID = -1;
         clsDriver _Driver;
         clsLicense _License;
+        public clsLicense SelectedLicenseInfo
+        { get { return _License; } }
         public ctrlLicenseInfo()
         {
             InitializeComponent();
@@ -88,7 +90,8 @@ namespace DVLD_Project.License
         {
             _LicenseID = LicenseID;
              _License = clsLicense.Find(_LicenseID);
-            _Driver = clsDriver.FindByDriverID(_License.DriverID);
+            if(_License != null)
+            _Driver = clsDriver.Find(_License.DriverID);
             
 
             _FillDetails();

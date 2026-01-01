@@ -75,7 +75,33 @@ namespace DVLD_Project.Test_Appointments
                 _Mode = enMode.AddNew;
             else
                 _Mode = enMode.Update;
-
+           switch(_enTestTypeID)
+            {
+                case enTestTypeID.Vision:
+                    {
+                        pbAppointment.Image = Resources.Vision_512;
+                        lblTestAppointmentName.Text = "Vision Test Appointment";
+                        gbTestInfo.Text = "Vision Test Appointment";
+                        this.Text = "Vision Test Appointment";
+                        break;
+                    }
+                case enTestTypeID.Written:
+                    {
+                        pbAppointment.Image = Resources.Written_Test_512;
+                        lblTestAppointmentName.Text = "Written Test Appointment";
+                        gbTestInfo.Text = "Written Test Appointment";
+                        this.Text = "Written Test Appointment";
+                        break;
+                    }
+                case enTestTypeID.Road:
+                    {
+                        pbAppointment.Image = Resources.driving_test_512;
+                        lblTestAppointmentName.Text = "Street Test Appointment";
+                        gbTestInfo.Text = "Street Test Appointment";
+                        this.Text = "Street Test Appointment";
+                        break;
+                    }
+            }
             
             _LocalDrivingLicenseApplication = clsLocalDrivingLicenseApplication.FindByLocalDrivingLicenseAppID(_LocalDrivingLicenseApplicationID);
 
@@ -349,6 +375,7 @@ namespace DVLD_Project.Test_Appointments
             if (_TestAppointment.Save())
             {
                 _Mode = enMode.Update;
+                lblRTestAppID.Text = _TestAppointment.RetakeTestApplicationID.ToString();
                 MessageBox.Show("Data Saved Successfully.", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }

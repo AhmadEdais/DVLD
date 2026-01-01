@@ -109,14 +109,15 @@
             this.editTestToolStripMenuItem,
             this.takeTestToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(154, 80);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(227, 108);
+            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // editTestToolStripMenuItem
             // 
             this.editTestToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("editTestToolStripMenuItem.Image")));
             this.editTestToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.editTestToolStripMenuItem.Name = "editTestToolStripMenuItem";
-            this.editTestToolStripMenuItem.Size = new System.Drawing.Size(153, 38);
+            this.editTestToolStripMenuItem.Size = new System.Drawing.Size(226, 38);
             this.editTestToolStripMenuItem.Text = "Edit Test";
             this.editTestToolStripMenuItem.Click += new System.EventHandler(this.editTestToolStripMenuItem_Click);
             // 
@@ -125,7 +126,7 @@
             this.takeTestToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("takeTestToolStripMenuItem.Image")));
             this.takeTestToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.takeTestToolStripMenuItem.Name = "takeTestToolStripMenuItem";
-            this.takeTestToolStripMenuItem.Size = new System.Drawing.Size(153, 38);
+            this.takeTestToolStripMenuItem.Size = new System.Drawing.Size(226, 38);
             this.takeTestToolStripMenuItem.Text = "Take Test";
             this.takeTestToolStripMenuItem.Click += new System.EventHandler(this.takeTestToolStripMenuItem_Click);
             // 
@@ -151,7 +152,6 @@
             // 
             // btnAddNewAppointment
             // 
-            this.btnAddNewAppointment.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnAddNewAppointment.Image = ((System.Drawing.Image)(resources.GetObject("btnAddNewAppointment.Image")));
             this.btnAddNewAppointment.Location = new System.Drawing.Point(1046, 664);
             this.btnAddNewAppointment.Name = "btnAddNewAppointment";

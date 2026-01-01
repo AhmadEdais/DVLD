@@ -48,3 +48,9 @@ C:\Users\LENOVO\OneDrive - just.edu.jo\Visual Studio\DVLD Project\DVLD Project\o
 C:\Users\LENOVO\OneDrive - just.edu.jo\Visual Studio\DVLD Project\DVLD Project\obj\Debug\DVLD_Project.License.frmShowLicense.resources
 C:\Users\LENOVO\OneDrive - just.edu.jo\Visual Studio\DVLD Project\DVLD Project\obj\Debug\DVLD_Project.License.frmLicenseHistory.resources
 C:\Users\LENOVO\OneDrive - just.edu.jo\Visual Studio\DVLD Project\DVLD Project\obj\Debug\DVLD_Project.Divers.frmListDrivers.resources
+C:\Users\LENOVO\OneDrive - just.edu.jo\Visual Studio\DVLD Project\DVLD Project\obj\Debug\DVLD_Project.License.ctrlFindLicense.resources
+C:\Users\LENOVO\OneDrive - just.edu.jo\Visual Studio\DVLD Project\DVLD Project\obj\Debug\DVLD_Project.License.frmNewInternationalLicenseApplication.resources
+C:\Users\LENOVO\OneDrive - just.edu.jo\Visual Studio\DVLD Project\DVLD Project\obj\Debug\DVLD_Project.License.frmShowInternationalLicense.resources
+C:\Users\LENOVO\OneDrive - just.edu.jo\Visual Studio\DVLD Project\DVLD Project\obj\Debug\DVLD_Project.License.ctrlShowInternationalLicenseInfo.resources
+C:\Users\LENOVO\OneDrive - just.edu.jo\Visual Studio\DVLD Project\DVLD Project\obj\Debug\DVLD_Project.License.frmListInternationalLicenses.resources
+C:\Users\LENOVO\OneDrive - just.edu.jo\Visual Studio\DVLD Project\DVLD Project\obj\Debug\DVLD_Project.License.frmRenewLocalDrivingLicense.resources
