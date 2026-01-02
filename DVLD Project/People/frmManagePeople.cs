@@ -15,21 +15,39 @@ namespace DVLD_Project
 {
     public partial class frmManagePeople : Form
     {
+        DataTable _dtPeople;
+        DataView _dvPeople;
         private int _selectedRowIndex = -1;
         clsSettings.enPeopleFilterOptions _enFilterBy = clsSettings.enPeopleFilterOptions.None;
         public frmManagePeople()
         {
             InitializeComponent();
         }
-        private void _RefreshPeopleList(clsSettings.enPeopleFilterOptions enFilteredBy = clsSettings.enPeopleFilterOptions.PersonID, string Text = "")
+        private void _RefreshPeopleList()
         {
-            dgvAllPeople.DataSource = clsPerson.GetFilterPeople(enFilteredBy,Text);
-            lblLiveNumberOfRecrords.Text = clsPerson.GetPeopleCount(enFilteredBy, Text).ToString();
+            _dtPeople = clsPerson.GetAllPeopleInfoForManegePeople();
+            _dvPeople = _dtPeople.DefaultView;
+            dgvAllPeople.DataSource = _dvPeople;
+            lblLiveNumberOfRecrords.Text = dgvAllPeople.Rows.Count.ToString();
         }
         private void _StartUpSettings()
         {
             cbFilterBy.SelectedItem ="None";
             mtxtBoxFilter.Visible = false;
+            if(dgvAllPeople.Rows.Count > 0)
+            {
+                dgvAllPeople.Columns["Person ID"].Width = 80;
+                dgvAllPeople.Columns["National NO."].Width = 100;
+                dgvAllPeople.Columns["First Name"].Width = 100;
+                dgvAllPeople.Columns["Second Name"].Width = 120;
+                dgvAllPeople.Columns["Third Name"].Width = 100;
+                dgvAllPeople.Columns["Last Name"].Width = 100;
+                dgvAllPeople.Columns["Nationality"].Width = 100;
+                dgvAllPeople.Columns["Phone"].Width = 100;
+                dgvAllPeople.Columns["Email"].Width = 200;
+                dgvAllPeople.Columns["Gendor"].Width = 70;
+                dgvAllPeople.Columns["Date Of Birth"].Width = 200;
+            }
         }
         private void _OpenAddNewEditPersonWindow(int ID = -1)
         
@@ -65,68 +83,28 @@ namespace DVLD_Project
 
         private void cbFilterBy_SelectedIndexChanged(object sender, EventArgs e)
         {
-            mtxtBoxFilter.Clear();
-            mtxtBoxFilter.Mask = "";
-            _enFilterBy = clsSettings.enPeopleFilterOptions.PersonID;
-            _RefreshPeopleList(_enFilterBy, mtxtBoxFilter.Text.ToString().Trim());
-
-            switch (cbFilterBy.SelectedItem.ToString())
+            if (cbFilterBy.Text == "Gendor")
             {
-                case ("None") :
-                    mtxtBoxFilter.Visible = false;
-                    break;
-                case ("Person ID"):
-                    mtxtBoxFilter.Visible = true;
-                    _enFilterBy = clsSettings.enPeopleFilterOptions.PersonID;
-                    mtxtBoxFilter.Mask = "999999";
-                    break;
-                case ("National NO"):
-                    mtxtBoxFilter.Visible = true;
-                    _enFilterBy = clsSettings.enPeopleFilterOptions.NationalNo;
-                    mtxtBoxFilter.Mask = "aaaa";
-                    break;
-                case ("First Name"):
-                    mtxtBoxFilter.Visible = true;
-                    _enFilterBy = clsSettings.enPeopleFilterOptions.FirstName;
-                    mtxtBoxFilter.Mask = "????????????????????";
-                    break;
-                case ("Second Name"):
-                    mtxtBoxFilter.Visible = true;
-                    _enFilterBy = clsSettings.enPeopleFilterOptions.SecondName;
-                    mtxtBoxFilter.Mask = "????????????????????";
-                    break;
-                case ("Third Name"):
-                    mtxtBoxFilter.Visible = true;
-                    _enFilterBy = clsSettings.enPeopleFilterOptions.ThirdName;
-                    mtxtBoxFilter.Mask = "????????????????????";
-                    break;
-                case ("Last Name"):
-                    mtxtBoxFilter.Visible = true;
-                    _enFilterBy = clsSettings.enPeopleFilterOptions.LastName;
-                    mtxtBoxFilter.Mask = "CCCCCCCCCCCCCCCCCCCC";
-                    break;
-                case ("Nationality"):
-                    mtxtBoxFilter.Visible = true;
-                    _enFilterBy = clsSettings.enPeopleFilterOptions.Nationality;
-                    mtxtBoxFilter.Mask = "?????????????????????????????????????????????????";
-                    break;
-                case ("Gendor"):
-                    mtxtBoxFilter.Visible = true;
-                    _enFilterBy = clsSettings.enPeopleFilterOptions.Gendor;
-                    mtxtBoxFilter.Mask = "??????";
-                    break;
-                case ("Phone"):
-                    mtxtBoxFilter.Visible = true;
-                    _enFilterBy = clsSettings.enPeopleFilterOptions.Phone;
-                    mtxtBoxFilter.Mask = "99999999999999";
-                    break;
-                case ("Email"):
-                    mtxtBoxFilter.Visible = true;
-                    _enFilterBy = clsSettings.enPeopleFilterOptions.Email;
-                    mtxtBoxFilter.Mask = "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC";
-                    break;
+                mtxtBoxFilter.Visible = false;
+                cbGender.Visible = true;
+                cbGender.Focus();
+                cbGender.SelectedIndex = 0;
+            }
+            else
+            {
+                mtxtBoxFilter.Visible = (cbFilterBy.Text != "None");
+                cbGender.Visible = false;
 
-
+                if (cbFilterBy.Text == "None")
+                {
+                    mtxtBoxFilter.Enabled = false;
+                }
+                else
+                {
+                    mtxtBoxFilter.Enabled = true;
+                    mtxtBoxFilter.Text = "";
+                    mtxtBoxFilter.Focus();
+                }
             }
 
 
@@ -134,12 +112,81 @@ namespace DVLD_Project
 
         private void mtxtBoxFilter_TextChanged(object sender, EventArgs e)
         {
-            if(mtxtBoxFilter.Text == "")
+            string FilterColumn = "";
+
+            // Map Selection to SQL Column Alias
+            switch (cbFilterBy.Text)
             {
-                _RefreshPeopleList(clsSettings.enPeopleFilterOptions.PersonID, mtxtBoxFilter.Text.ToString().Trim());
+                case "Person ID":
+                    FilterColumn = "Person ID";
+                    break;
+
+                case "National NO":
+                    FilterColumn = "National NO."; // Note the dot from your SQL
+                    break;
+
+                case "First Name":
+                    FilterColumn = "First Name";
+                    break;
+
+                case "Second Name":
+                    FilterColumn = "Second Name";
+                    break;
+
+                case "Third Name":
+                    FilterColumn = "Third Name";
+                    break;
+
+                case "Last Name":
+                    FilterColumn = "Last Name";
+                    break;
+
+                case "Nationality":
+                    FilterColumn = "Nationality";
+                    break;
+
+                case "Phone":
+                    FilterColumn = "Phone";
+                    break;
+
+                case "Email":
+                    FilterColumn = "Email";
+                    break;
+
+                default:
+                    FilterColumn = "None";
+                    break;
+            }
+
+            // Reset if empty
+            if (mtxtBoxFilter.Text.Trim() == "" || FilterColumn == "None")
+            {
+                _dvPeople.RowFilter = "";
+                lblLiveNumberOfRecrords.Text = dgvAllPeople.Rows.Count.ToString();
                 return;
             }
-            _RefreshPeopleList(_enFilterBy, mtxtBoxFilter.Text.ToString().Trim());
+
+            // Apply Filter
+            if (FilterColumn == "Person ID")
+            {
+                // Numeric Filter (Exact Match)
+                if (int.TryParse(mtxtBoxFilter.Text.Trim(), out int id))
+                {
+                    _dvPeople.RowFilter = string.Format("[{0}] = {1}", FilterColumn, id);
+                }
+                else
+                {
+                    _dvPeople.RowFilter = ""; // Clear if invalid number
+                }
+            }
+            else
+            {
+                // String Filter (LIKE)
+                // Works for Name, Phone, Email, National No.
+                _dvPeople.RowFilter = string.Format("[{0}] LIKE '{1}%'", FilterColumn, mtxtBoxFilter.Text.Trim());
+            }
+
+            lblLiveNumberOfRecrords.Text = dgvAllPeople.Rows.Count.ToString();
         }
 
         private void cAddNewPerson_Click(object sender, EventArgs e)
@@ -241,6 +288,44 @@ namespace DVLD_Project
 
         }
 
-        
+        private void cbGender_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Note: adjusting the filter to match how the data is stored in your grid.
+            // If your Grid says "Male"/"Female", we compare strings. 
+            // If your Grid says "0"/"1", we compare numbers. (Assuming Text here based on typical Views)
+
+            string FilterColumn = "Gendor";
+            string FilterValue = cbGender.Text;
+
+            switch (FilterValue)
+            {
+                case "All":
+                    _dvPeople.RowFilter = "";
+                    break;
+                case "Male":
+                    // If your database returns 'Male', use: "Gendor = 'Male'"
+                    // If your database returns 0, use: "Gendor = 0"
+                    _dvPeople.RowFilter = string.Format("[{0}] = 'Male'", FilterColumn);
+                    break;
+                case "Female":
+                    // If your database returns 'Female', use: "Gendor = 'Female'"
+                    // If your database returns 1, use: "Gendor = 1"
+                    _dvPeople.RowFilter = string.Format("[{0}] = 'Female'", FilterColumn);
+                    break;
+            }
+            lblLiveNumberOfRecrords.Text = dgvAllPeople.Rows.Count.ToString();
+        }
+
+        private void mtxtBoxFilter_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Prevent typing letters if "Person ID" is selected
+            if (cbFilterBy.Text == "Person ID")
+            {
+                if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+                {
+                    e.Handled = true;
+                }
+            }
+        }
     }
 }

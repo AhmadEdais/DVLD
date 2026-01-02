@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmManagePeople));
             this.lblManagePeople = new System.Windows.Forms.Label();
             this.dgvAllPeople = new System.Windows.Forms.DataGridView();
@@ -49,6 +51,7 @@
             this.btnAddNewPerson = new System.Windows.Forms.Button();
             this.btnManagePeopleClose = new System.Windows.Forms.Button();
             this.pbManagePeople = new System.Windows.Forms.PictureBox();
+            this.cbGender = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllPeople)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbManagePeople)).BeginInit();
@@ -71,8 +74,24 @@
             this.dgvAllPeople.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvAllPeople.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvAllPeople.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAllPeople.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvAllPeople.ColumnHeadersHeight = 29;
             this.dgvAllPeople.ContextMenuStrip = this.contextMenuStrip1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAllPeople.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvAllPeople.Location = new System.Drawing.Point(27, 384);
             this.dgvAllPeople.Name = "dgvAllPeople";
             this.dgvAllPeople.ReadOnly = true;
@@ -207,8 +226,9 @@
             this.lblLiveNumberOfRecrords.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLiveNumberOfRecrords.Location = new System.Drawing.Point(158, 783);
             this.lblLiveNumberOfRecrords.Name = "lblLiveNumberOfRecrords";
-            this.lblLiveNumberOfRecrords.Size = new System.Drawing.Size(35, 38);
+            this.lblLiveNumberOfRecrords.Size = new System.Drawing.Size(49, 38);
             this.lblLiveNumberOfRecrords.TabIndex = 7;
+            this.lblLiveNumberOfRecrords.Text = "???";
             // 
             // mtxtBoxFilter
             // 
@@ -222,6 +242,7 @@
             this.mtxtBoxFilter.ValidatingType = typeof(int);
             this.mtxtBoxFilter.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.mtxtBoxFilter_MaskInputRejected);
             this.mtxtBoxFilter.TextChanged += new System.EventHandler(this.mtxtBoxFilter_TextChanged);
+            this.mtxtBoxFilter.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mtxtBoxFilter_KeyPress);
             // 
             // btnAddNewPerson
             // 
@@ -236,6 +257,7 @@
             // 
             // btnManagePeopleClose
             // 
+            this.btnManagePeopleClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnManagePeopleClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnManagePeopleClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnManagePeopleClose.Image = ((System.Drawing.Image)(resources.GetObject("btnManagePeopleClose.Image")));
@@ -258,13 +280,28 @@
             this.pbManagePeople.TabIndex = 0;
             this.pbManagePeople.TabStop = false;
             // 
+            // cbGender
+            // 
+            this.cbGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbGender.FormattingEnabled = true;
+            this.cbGender.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
+            this.cbGender.Location = new System.Drawing.Point(368, 350);
+            this.cbGender.Name = "cbGender";
+            this.cbGender.Size = new System.Drawing.Size(138, 24);
+            this.cbGender.TabIndex = 10;
+            this.cbGender.SelectedIndexChanged += new System.EventHandler(this.cbGender_SelectedIndexChanged);
+            // 
             // frmManagePeople
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.CancelButton = this.btnManagePeopleClose;
             this.ClientSize = new System.Drawing.Size(1805, 833);
+            this.Controls.Add(this.cbGender);
             this.Controls.Add(this.mtxtBoxFilter);
             this.Controls.Add(this.btnAddNewPerson);
             this.Controls.Add(this.lblLiveNumberOfRecrords);
@@ -311,5 +348,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem cSendEmail;
         private System.Windows.Forms.ToolStripMenuItem cPhoneCall;
+        private System.Windows.Forms.ComboBox cbGender;
     }
 }

@@ -32,8 +32,7 @@ namespace DVLD_Project.License
         }
         private void _ResetForm()
         {
-            ctrlFindLicense1.ResetControl();
-            lblLocalLicenseID.Text = "-1";
+            
             llblShowLicenseHistory.Enabled = false;
             llblShowLicenseInfo.Enabled = false;
             btnIssue.Enabled = false;
@@ -42,13 +41,13 @@ namespace DVLD_Project.License
         private void CtrlFindLicense1_OnLicenseSelected(int LicenseID)
         {
             // This code runs automatically when the user searches and finds a license
-
+            _ResetForm();
             // 1. Store the ID
             clsLicense SelectedLicense = ctrlFindLicense1.SelectedLicenseInfo;
             if (SelectedLicense.ExpirationDate < DateTime.Now)
             {
                 MessageBox.Show("The selected local license is expired. Cannot proceed with International License application.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                _ResetForm();
+                llblShowLicenseHistory.Enabled = true;
                 return;
             }
            

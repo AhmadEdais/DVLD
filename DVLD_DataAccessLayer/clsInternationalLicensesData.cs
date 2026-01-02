@@ -152,16 +152,16 @@ public class clsInternationalLicenseData
         DataTable dt = new DataTable();
 
         string query = @"
-            SELECT 
-                InternationalLicenses.InternationalLicenseID AS [Int.License ID], 
-                InternationalLicenses.ApplicationID AS [App. ID], 
-                InternationalLicenses.IssuedUsingLocalLicenseID AS [L.License ID], 
-                InternationalLicenses.IssueDate AS [Issue Date], 
-                InternationalLicenses.ExpirationDate AS [Expiration Date], 
-                InternationalLicenses.IsActive AS [Is Active]
-            FROM InternationalLicenses 
-            WHERE DriverID = @DriverID
-            ORDER BY ExpirationDate DESC";
+                  SELECT 
+                      InternationalLicenses.InternationalLicenseID AS [Int.License ID], 
+                      InternationalLicenses.ApplicationID AS [App. ID], 
+                      InternationalLicenses.IssuedUsingLocalLicenseID AS [L.License ID], 
+                      FORMAT(InternationalLicenses.IssueDate, 'dd/MMM/yyyy') AS [Issue Date], 
+                      FORMAT(InternationalLicenses.ExpirationDate, 'dd/MMM/yyyy') AS [Expiration Date], 
+                      InternationalLicenses.IsActive AS [Is Active]
+                  FROM InternationalLicenses 
+                  WHERE DriverID = @DriverID
+                  ORDER BY InternationalLicenses.InternationalLicenseID DESC";
 
         using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
         {

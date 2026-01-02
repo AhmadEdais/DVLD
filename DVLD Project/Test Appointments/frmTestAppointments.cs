@@ -85,6 +85,7 @@ namespace DVLD_Project.Test_Appointments
             if (clsLocalDrivingLicenseApplication.DoesPassTestType(_LocalDrivingLicenseApplicationID, _enTestType))
             {
                 MessageBox.Show("The applicant has already passed this test type. Cannot schedule another appointment.", "Cannot Schedule", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.Close();
                 return;
             }
 

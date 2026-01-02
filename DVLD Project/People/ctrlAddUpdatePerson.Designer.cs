@@ -65,7 +65,6 @@
             this.rtxtAddress = new System.Windows.Forms.RichTextBox();
             this.pbSelectImage = new System.Windows.Forms.PictureBox();
             this.llSelectImage = new System.Windows.Forms.LinkLabel();
-            this.btnClose = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.llRemove = new System.Windows.Forms.LinkLabel();
             this.lblPersonID = new System.Windows.Forms.Label();
@@ -423,20 +422,6 @@
             this.llSelectImage.Text = "Set Image";
             this.llSelectImage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklblSelectImage_LinkClicked);
             // 
-            // btnClose
-            // 
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
-            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(359, 563);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(153, 52);
-            this.btnClose.TabIndex = 37;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnManagePeopleClose_Click);
-            // 
             // btnSave
             // 
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -523,7 +508,6 @@
             this.Controls.Add(this.lblPersonIDText);
             this.Controls.Add(this.llRemove);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.llSelectImage);
             this.Controls.Add(this.pbSelectImage);
             this.Controls.Add(this.rtxtAddress);
@@ -616,7 +600,6 @@
         private System.Windows.Forms.RichTextBox rtxtAddress;
         private System.Windows.Forms.PictureBox pbSelectImage;
         private System.Windows.Forms.LinkLabel llSelectImage;
-        private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.LinkLabel llRemove;
         private System.Windows.Forms.Label lblPersonID;

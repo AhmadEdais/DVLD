@@ -78,6 +78,7 @@ namespace DVLD_Project.People
                 
                 txtFindBy.Visible = true;
                 ctrlPersonDetails1.EditLinkVisible = true;
+                txtFindBy.Focus();
             }
             else
             {

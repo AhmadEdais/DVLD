@@ -159,15 +159,16 @@ public class clsLicenseDataAccess
         using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
         {
             string query = @"SELECT 
-                            Licenses.LicenseID AS [Lic.ID],
-                            Licenses.ApplicationID AS [App.ID],
-                            LicenseClasses.ClassName AS [Class Name],
-                            Licenses.IssueDate AS [Issue Date],
-                            Licenses.ExpirationDate AS [Expiration Date],
-                            Licenses.IsActive AS [Is Active]
-                        FROM Licenses 
-                        INNER JOIN LicenseClasses ON LicenseClasses.LicenseClassID = Licenses.LicenseClass
-                        WHERE DriverID = @DriverID";
+                    Licenses.LicenseID AS [Lic.ID],
+                    Licenses.ApplicationID AS [App.ID],
+                    LicenseClasses.ClassName AS [Class Name],
+                    FORMAT(Licenses.IssueDate, 'dd/MMM/yyyy') AS [Issue Date],
+                    FORMAT(Licenses.ExpirationDate, 'dd/MMM/yyyy') AS [Expiration Date],
+                    Licenses.IsActive AS [Is Active]
+                FROM Licenses 
+                INNER JOIN LicenseClasses ON LicenseClasses.LicenseClassID = Licenses.LicenseClass
+                WHERE DriverID = @DriverID
+                ORDER BY Licenses.LicenseID DESC";
 
             using (SqlCommand command = new SqlCommand(query, connection))
             {

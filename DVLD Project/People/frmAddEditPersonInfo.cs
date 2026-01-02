@@ -59,5 +59,10 @@ namespace DVLD_Project
             // Raise the DataBack event to pass the PersonID back to the caller
             
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -150,7 +150,7 @@ public class clsTestAppointmentData
                  FROM TestAppointments
                  WHERE LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID 
                  AND TestTypeID = @TestTypeID
-                 ORDER BY AppointmentDate DESC";
+                 ORDER BY TestAppointmentID DESC";
 
         using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
         {

@@ -89,7 +89,7 @@ namespace DVLD_Project.License
         public void SetLicenseID(int LicenseID)
         {
             _LicenseID = LicenseID;
-             _License = clsLicense.Find(_LicenseID);
+            _License = clsLicense.Find(_LicenseID);
             if(_License != null)
             _Driver = clsDriver.Find(_License.DriverID);
             

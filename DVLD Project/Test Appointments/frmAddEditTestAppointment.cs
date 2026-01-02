@@ -122,9 +122,9 @@ namespace DVLD_Project.Test_Appointments
                 _CreationMode = enCreationMode.FirstTimeSchedule;
 
 
-            if (_CreationMode == enCreationMode.RetakeTestSchedule)
+            if (_CreationMode == enCreationMode.RetakeTestSchedule && (trails == 1 && _Mode == enMode.AddNew))
             {
-                lblRAppFees.Text = clsApplicationTypes.GetApplicationFees(7).ToString();
+                lblRAppFees.Text = clsApplicationTypes.GetApplicationFees((int)clsApplicationTypes.enApplicationType.RetakeTest).ToString();
                 gbRetakeTestInfo.Enabled = true;
                 lblTestAppointmentName.Text = "Schedule Retake Test";
                 lblRTestAppID.Text = "0";
@@ -375,7 +375,13 @@ namespace DVLD_Project.Test_Appointments
             if (_TestAppointment.Save())
             {
                 _Mode = enMode.Update;
-                lblRTestAppID.Text = _TestAppointment.RetakeTestApplicationID.ToString();
+                if(_TestAppointment.RetakeTestApplicationID == -1)
+                    lblRTestAppID.Text = "N/A";
+                else
+                {
+                    lblRTestAppID.Text = _TestAppointment.RetakeTestApplicationID.ToString();
+
+                }
                 MessageBox.Show("Data Saved Successfully.", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }

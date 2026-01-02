@@ -39,18 +39,18 @@
             this.txtFilterByValue = new System.Windows.Forms.TextBox();
             this.dgvAllUsers = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblRecordsNumber = new System.Windows.Forms.Label();
-            this.btnManagePeopleClose = new System.Windows.Forms.Button();
             this.cShowDetails = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.addNewUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.sendEmailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.phoneCallToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblRecordsNumber = new System.Windows.Forms.Label();
+            this.btnManagePeopleClose = new System.Windows.Forms.Button();
             this.btnAddUser = new System.Windows.Forms.Button();
             this.pbManageUsers = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllUsers)).BeginInit();
@@ -171,52 +171,6 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(210, 282);
             // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(206, 6);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(206, 6);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 760);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(122, 25);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "# Records: ";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // lblRecordsNumber
-            // 
-            this.lblRecordsNumber.AutoSize = true;
-            this.lblRecordsNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRecordsNumber.Location = new System.Drawing.Point(140, 760);
-            this.lblRecordsNumber.Name = "lblRecordsNumber";
-            this.lblRecordsNumber.Size = new System.Drawing.Size(36, 25);
-            this.lblRecordsNumber.TabIndex = 10;
-            this.lblRecordsNumber.Text = "??";
-            this.lblRecordsNumber.Click += new System.EventHandler(this.lblRecordsNumber_Click);
-            // 
-            // btnManagePeopleClose
-            // 
-            this.btnManagePeopleClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnManagePeopleClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnManagePeopleClose.Image = ((System.Drawing.Image)(resources.GetObject("btnManagePeopleClose.Image")));
-            this.btnManagePeopleClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnManagePeopleClose.Location = new System.Drawing.Point(1218, 760);
-            this.btnManagePeopleClose.Name = "btnManagePeopleClose";
-            this.btnManagePeopleClose.Size = new System.Drawing.Size(153, 52);
-            this.btnManagePeopleClose.TabIndex = 11;
-            this.btnManagePeopleClose.Text = "Close";
-            this.btnManagePeopleClose.UseVisualStyleBackColor = true;
-            this.btnManagePeopleClose.Click += new System.EventHandler(this.btnManagePeopleClose_Click);
-            // 
             // cShowDetails
             // 
             this.cShowDetails.Image = ((System.Drawing.Image)(resources.GetObject("cShowDetails.Image")));
@@ -225,6 +179,11 @@
             this.cShowDetails.Size = new System.Drawing.Size(209, 38);
             this.cShowDetails.Text = "Show Details";
             this.cShowDetails.Click += new System.EventHandler(this.cShowDetails_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(206, 6);
             // 
             // addNewUserToolStripMenuItem
             // 
@@ -262,6 +221,11 @@
             this.changePasswordToolStripMenuItem.Text = "Change Password";
             this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(206, 6);
+            // 
             // sendEmailToolStripMenuItem
             // 
             this.sendEmailToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("sendEmailToolStripMenuItem.Image")));
@@ -279,6 +243,43 @@
             this.phoneCallToolStripMenuItem.Size = new System.Drawing.Size(209, 38);
             this.phoneCallToolStripMenuItem.Text = "Phone Call";
             this.phoneCallToolStripMenuItem.Click += new System.EventHandler(this.phoneCallToolStripMenuItem_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(12, 760);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(122, 25);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "# Records: ";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // lblRecordsNumber
+            // 
+            this.lblRecordsNumber.AutoSize = true;
+            this.lblRecordsNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRecordsNumber.Location = new System.Drawing.Point(140, 760);
+            this.lblRecordsNumber.Name = "lblRecordsNumber";
+            this.lblRecordsNumber.Size = new System.Drawing.Size(36, 25);
+            this.lblRecordsNumber.TabIndex = 10;
+            this.lblRecordsNumber.Text = "??";
+            this.lblRecordsNumber.Click += new System.EventHandler(this.lblRecordsNumber_Click);
+            // 
+            // btnManagePeopleClose
+            // 
+            this.btnManagePeopleClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnManagePeopleClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnManagePeopleClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnManagePeopleClose.Image = ((System.Drawing.Image)(resources.GetObject("btnManagePeopleClose.Image")));
+            this.btnManagePeopleClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnManagePeopleClose.Location = new System.Drawing.Point(1218, 760);
+            this.btnManagePeopleClose.Name = "btnManagePeopleClose";
+            this.btnManagePeopleClose.Size = new System.Drawing.Size(153, 52);
+            this.btnManagePeopleClose.TabIndex = 11;
+            this.btnManagePeopleClose.Text = "Close";
+            this.btnManagePeopleClose.UseVisualStyleBackColor = true;
+            this.btnManagePeopleClose.Click += new System.EventHandler(this.btnManagePeopleClose_Click);
             // 
             // btnAddUser
             // 
@@ -304,6 +305,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnManagePeopleClose;
             this.ClientSize = new System.Drawing.Size(1401, 970);
             this.Controls.Add(this.btnManagePeopleClose);
             this.Controls.Add(this.lblRecordsNumber);

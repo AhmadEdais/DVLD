@@ -137,5 +137,17 @@ namespace DVLD_Project
             Form frm  = new frmRenewLocalDrivingLicense();
             frm.ShowDialog();
         }
+
+        private void replacementForLostOrDamagedLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form frm = new frmReplaceDrivingLicense();
+            frm.ShowDialog();
+        }
+
+        private void tsmiDetainLicense_Click(object sender, EventArgs e)
+        {
+            Form frm = new frmDetainLicense();
+            frm.ShowDialog();
+        }
     }
 }
