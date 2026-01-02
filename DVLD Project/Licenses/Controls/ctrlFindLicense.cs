@@ -63,6 +63,11 @@ namespace DVLD_Project.License
                 e.Handled = true;       // Stops the "ding" sound
             }
         }
+        public void SetID(int ID)
+        {
+            txtFilterBy.Text = ID.ToString();
+            btnFindLicense.PerformClick();
+        }
         
         private void btnFindLicense_Click(object sender, EventArgs e)
         {

@@ -209,6 +209,9 @@ namespace DVLDBusinessLayer
         {
             return clsPersonData.GetFullName(PersonID);
         }
-
+        public static int GetPersonIDByNationalNo(string NationalNo)
+        {
+            return clsPersonData.GetPersonIDByNationalNo(NationalNo);
+        }
     }
 }

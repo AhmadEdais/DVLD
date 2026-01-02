@@ -149,5 +149,24 @@ namespace DVLD_Project
             Form frm = new frmDetainLicense();
             frm.ShowDialog();
         }
+
+        private void tsmiReleaseDetainedLicense_Click(object sender, EventArgs e)
+        {
+            Form frm = new frmReleaseDetainedLicenses();
+            frm.ShowDialog();
+        }
+
+        private void tsmiManageDetainedLicenses_Click(object sender, EventArgs e)
+        {
+            Form frm = new frmListDetainedLicenses();
+            frm.ShowDialog();
+        }
+
+        private void releaseDetainedDrivingLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form frm = new frmReleaseDetainedLicenses();
+            frm.ShowDialog();
+
+        }
     }
 }

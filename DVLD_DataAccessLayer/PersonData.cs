@@ -663,8 +663,39 @@ VALUES
 
             return FullName;
         }
+        public static int GetPersonIDByNationalNo(string NationalNo)
+        {
+            int PersonID = -1;
+
+            string query = "SELECT PersonID FROM People WHERE NationalNo = @NationalNo";
+
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@NationalNo", NationalNo);
+
+                    try
+                    {
+                        connection.Open();
+                        object result = command.ExecuteScalar();
+
+                        if (result != null && int.TryParse(result.ToString(), out int insertedID))
+                        {
+                            PersonID = insertedID;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        // Log Error
+                    }
+                }
+            }
+
+            return PersonID;
+        }
     }
     
 
-    }
+}
     

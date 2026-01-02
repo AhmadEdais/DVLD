@@ -48,6 +48,9 @@
             this.internationalLicenseApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.detainLicensesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiManageDetainedLicenses = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiDetainLicense = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiReleaseDetainedLicense = new System.Windows.Forms.ToolStripMenuItem();
             this.manageApplicationTypesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageTestTypesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMainMenuItemPeople = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,9 +61,6 @@
             this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.signOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiManageDetainedLicenses = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiDetainLicense = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiReleaseDetainedLicense = new System.Windows.Forms.ToolStripMenuItem();
             this.MainMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbMainBackGround)).BeginInit();
             this.SuspendLayout();
@@ -192,6 +192,7 @@
             this.releaseDetainedDrivingLicenseToolStripMenuItem.Name = "releaseDetainedDrivingLicenseToolStripMenuItem";
             this.releaseDetainedDrivingLicenseToolStripMenuItem.Size = new System.Drawing.Size(467, 38);
             this.releaseDetainedDrivingLicenseToolStripMenuItem.Text = "Release Detained Driving License";
+            this.releaseDetainedDrivingLicenseToolStripMenuItem.Click += new System.EventHandler(this.releaseDetainedDrivingLicenseToolStripMenuItem_Click);
             // 
             // retakeTestToolStripMenuItem
             // 
@@ -252,6 +253,33 @@
             this.detainLicensesToolStripMenuItem.Name = "detainLicensesToolStripMenuItem";
             this.detainLicensesToolStripMenuItem.Size = new System.Drawing.Size(369, 70);
             this.detainLicensesToolStripMenuItem.Text = "Detain Licenses";
+            // 
+            // tsmiManageDetainedLicenses
+            // 
+            this.tsmiManageDetainedLicenses.Image = ((System.Drawing.Image)(resources.GetObject("tsmiManageDetainedLicenses.Image")));
+            this.tsmiManageDetainedLicenses.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsmiManageDetainedLicenses.Name = "tsmiManageDetainedLicenses";
+            this.tsmiManageDetainedLicenses.Size = new System.Drawing.Size(337, 38);
+            this.tsmiManageDetainedLicenses.Text = "Manage Detained Licenses";
+            this.tsmiManageDetainedLicenses.Click += new System.EventHandler(this.tsmiManageDetainedLicenses_Click);
+            // 
+            // tsmiDetainLicense
+            // 
+            this.tsmiDetainLicense.Image = ((System.Drawing.Image)(resources.GetObject("tsmiDetainLicense.Image")));
+            this.tsmiDetainLicense.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsmiDetainLicense.Name = "tsmiDetainLicense";
+            this.tsmiDetainLicense.Size = new System.Drawing.Size(337, 38);
+            this.tsmiDetainLicense.Text = "Detain Licenses";
+            this.tsmiDetainLicense.Click += new System.EventHandler(this.tsmiDetainLicense_Click);
+            // 
+            // tsmiReleaseDetainedLicense
+            // 
+            this.tsmiReleaseDetainedLicense.Image = ((System.Drawing.Image)(resources.GetObject("tsmiReleaseDetainedLicense.Image")));
+            this.tsmiReleaseDetainedLicense.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsmiReleaseDetainedLicense.Name = "tsmiReleaseDetainedLicense";
+            this.tsmiReleaseDetainedLicense.Size = new System.Drawing.Size(337, 38);
+            this.tsmiReleaseDetainedLicense.Text = "Release Detained License";
+            this.tsmiReleaseDetainedLicense.Click += new System.EventHandler(this.tsmiReleaseDetainedLicense_Click);
             // 
             // manageApplicationTypesToolStripMenuItem
             // 
@@ -347,31 +375,6 @@
             this.signOutToolStripMenuItem.Size = new System.Drawing.Size(259, 38);
             this.signOutToolStripMenuItem.Text = "Sign Out";
             this.signOutToolStripMenuItem.Click += new System.EventHandler(this.signOutToolStripMenuItem_Click);
-            // 
-            // tsmiManageDetainedLicenses
-            // 
-            this.tsmiManageDetainedLicenses.Image = ((System.Drawing.Image)(resources.GetObject("tsmiManageDetainedLicenses.Image")));
-            this.tsmiManageDetainedLicenses.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsmiManageDetainedLicenses.Name = "tsmiManageDetainedLicenses";
-            this.tsmiManageDetainedLicenses.Size = new System.Drawing.Size(337, 38);
-            this.tsmiManageDetainedLicenses.Text = "Manage Detained Licenses";
-            // 
-            // tsmiDetainLicense
-            // 
-            this.tsmiDetainLicense.Image = ((System.Drawing.Image)(resources.GetObject("tsmiDetainLicense.Image")));
-            this.tsmiDetainLicense.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsmiDetainLicense.Name = "tsmiDetainLicense";
-            this.tsmiDetainLicense.Size = new System.Drawing.Size(337, 38);
-            this.tsmiDetainLicense.Text = "Detain Licenses";
-            this.tsmiDetainLicense.Click += new System.EventHandler(this.tsmiDetainLicense_Click);
-            // 
-            // tsmiReleaseDetainedLicense
-            // 
-            this.tsmiReleaseDetainedLicense.Image = ((System.Drawing.Image)(resources.GetObject("tsmiReleaseDetainedLicense.Image")));
-            this.tsmiReleaseDetainedLicense.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsmiReleaseDetainedLicense.Name = "tsmiReleaseDetainedLicense";
-            this.tsmiReleaseDetainedLicense.Size = new System.Drawing.Size(337, 38);
-            this.tsmiReleaseDetainedLicense.Text = "Release Detained License";
             // 
             // frmMain
             // 

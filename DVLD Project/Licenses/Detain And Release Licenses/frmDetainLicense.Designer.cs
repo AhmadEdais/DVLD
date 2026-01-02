@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDetainLicense));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtFineFees = new System.Windows.Forms.TextBox();
             this.lblLicenseID = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.lblCreatedByUser = new System.Windows.Forms.Label();
@@ -42,24 +43,23 @@
             this.label9 = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.llblShowLiceseInfo = new System.Windows.Forms.LinkLabel();
-            this.ctrlFindLicense1 = new DVLD_Project.License.ctrlFindLicense();
             this.llblShowLicenseHistory = new System.Windows.Forms.LinkLabel();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnClose = new System.Windows.Forms.Button();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.btnClose = new System.Windows.Forms.Button();
             this.btnDetain = new System.Windows.Forms.Button();
-            this.txtFineFees = new System.Windows.Forms.TextBox();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ctrlFindLicense1 = new DVLD_Project.License.ctrlFindLicense();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -85,7 +85,16 @@
             this.groupBox1.Size = new System.Drawing.Size(1030, 156);
             this.groupBox1.TabIndex = 133;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Application Info For License Replacement";
+            this.groupBox1.Text = "Detain Info";
+            // 
+            // txtFineFees
+            // 
+            this.txtFineFees.Location = new System.Drawing.Point(275, 105);
+            this.txtFineFees.Name = "txtFineFees";
+            this.txtFineFees.Size = new System.Drawing.Size(94, 30);
+            this.txtFineFees.TabIndex = 114;
+            this.txtFineFees.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFineFees_KeyPress);
+            this.txtFineFees.Validating += new System.ComponentModel.CancelEventHandler(this.txtFineFees_Validating);
             // 
             // lblLicenseID
             // 
@@ -186,6 +195,7 @@
             this.lblTitle.Size = new System.Drawing.Size(430, 51);
             this.lblTitle.TabIndex = 132;
             this.lblTitle.Text = "Detain License";
+            this.lblTitle.Click += new System.EventHandler(this.lblTitle_Click);
             // 
             // llblShowLiceseInfo
             // 
@@ -200,14 +210,6 @@
             this.llblShowLiceseInfo.Text = "Show License Info";
             this.llblShowLiceseInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblShowLiceseInfo_LinkClicked);
             // 
-            // ctrlFindLicense1
-            // 
-            this.ctrlFindLicense1.FilterEnabled = true;
-            this.ctrlFindLicense1.Location = new System.Drawing.Point(11, 63);
-            this.ctrlFindLicense1.Name = "ctrlFindLicense1";
-            this.ctrlFindLicense1.Size = new System.Drawing.Size(1076, 527);
-            this.ctrlFindLicense1.TabIndex = 127;
-            // 
             // llblShowLicenseHistory
             // 
             this.llblShowLicenseHistory.AutoSize = true;
@@ -220,6 +222,25 @@
             this.llblShowLicenseHistory.TabStop = true;
             this.llblShowLicenseHistory.Text = "Show License History";
             this.llblShowLicenseHistory.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblShowLicenseHistory_LinkClicked);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // btnClose
+            // 
+            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
+            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClose.Location = new System.Drawing.Point(756, 763);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(153, 52);
+            this.btnClose.TabIndex = 130;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // pictureBox5
             // 
@@ -271,21 +292,6 @@
             this.pictureBox7.TabIndex = 85;
             this.pictureBox7.TabStop = false;
             // 
-            // btnClose
-            // 
-            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
-            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(756, 763);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(153, 52);
-            this.btnClose.TabIndex = 130;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
             // btnDetain
             // 
             this.btnDetain.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -300,18 +306,14 @@
             this.btnDetain.UseVisualStyleBackColor = true;
             this.btnDetain.Click += new System.EventHandler(this.btnDetain_Click);
             // 
-            // txtFineFees
+            // ctrlFindLicense1
             // 
-            this.txtFineFees.Location = new System.Drawing.Point(275, 105);
-            this.txtFineFees.Name = "txtFineFees";
-            this.txtFineFees.Size = new System.Drawing.Size(94, 30);
-            this.txtFineFees.TabIndex = 114;
-            this.txtFineFees.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFineFees_KeyPress);
-            this.txtFineFees.Validating += new System.ComponentModel.CancelEventHandler(this.txtFineFees_Validating);
-            // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
+            this.ctrlFindLicense1.FilterEnabled = true;
+            this.ctrlFindLicense1.Location = new System.Drawing.Point(11, 63);
+            this.ctrlFindLicense1.Name = "ctrlFindLicense1";
+            this.ctrlFindLicense1.Size = new System.Drawing.Size(1076, 527);
+            this.ctrlFindLicense1.TabIndex = 127;
+            this.ctrlFindLicense1.Load += new System.EventHandler(this.ctrlFindLicense1_Load);
             // 
             // frmDetainLicense
             // 
@@ -334,12 +336,12 @@
             this.Load += new System.EventHandler(this.frmDetainLicense_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

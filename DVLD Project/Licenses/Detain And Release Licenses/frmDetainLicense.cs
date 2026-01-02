@@ -36,13 +36,13 @@ namespace DVLD_Project.License
             _SetupSettings();
             if (ctrlFindLicense1.SelectedLicenseInfo.ExpirationDate < DateTime.Now)
             {
-                MessageBox.Show("The selected local license is expired. Replacement is not allowed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("The selected local license is expired. Detain is not allowed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 llblShowLicenseHistory.Enabled = true;
                 return;
             }
             if (ctrlFindLicense1.SelectedLicenseInfo.IsActive == false)
             {
-                MessageBox.Show("The selected local license is inactive. Replacememnt is not allowed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("The selected local license is inactive. Detain is not allowed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 llblShowLicenseHistory.Enabled = true;
                 return;
             }
@@ -76,7 +76,6 @@ namespace DVLD_Project.License
                 // 3. Stop the save method right here.
                 return;
             }
-            int.Parse(txtFineFees.Text.Trim());
             int DetainedLicenseID =
                 ctrlFindLicense1.SelectedLicenseInfo.Detain(int.Parse(txtFineFees.Text.Trim()),
 
@@ -131,6 +130,16 @@ namespace DVLD_Project.License
             {
                 errorProvider1.SetError(txtFineFees, "");
             }
+        }
+
+        private void ctrlFindLicense1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTitle_Click(object sender, EventArgs e)
+        {
+
         }
     }
     

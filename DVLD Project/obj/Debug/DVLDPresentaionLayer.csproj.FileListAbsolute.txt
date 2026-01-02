@@ -56,3 +56,5 @@ C:\Users\LENOVO\OneDrive - just.edu.jo\Visual Studio\DVLD Project\DVLD Project\o
 C:\Users\LENOVO\OneDrive - just.edu.jo\Visual Studio\DVLD Project\DVLD Project\obj\Debug\DVLD_Project.License.frmRenewLocalDrivingLicense.resources
 C:\Users\LENOVO\OneDrive - just.edu.jo\Visual Studio\DVLD Project\DVLD Project\obj\Debug\DVLD_Project.License.frmReplaceDrivingLicense.resources
 C:\Users\LENOVO\OneDrive - just.edu.jo\Visual Studio\DVLD Project\DVLD Project\obj\Debug\DVLD_Project.License.frmDetainLicense.resources
+C:\Users\LENOVO\OneDrive - just.edu.jo\Visual Studio\DVLD Project\DVLD Project\obj\Debug\DVLD_Project.License.frmReleaseDetainedLicenses.resources
+C:\Users\LENOVO\OneDrive - just.edu.jo\Visual Studio\DVLD Project\DVLD Project\obj\Debug\DVLD_Project.License.frmListDetainedLicenses.resources

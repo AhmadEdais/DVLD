@@ -128,14 +128,20 @@ public class clsDetainedLicenseData
     {
         DataTable dt = new DataTable();
 
-        string query = @"SELECT DetainedLicenses.DetainID, DetainedLicenses.LicenseID, DetainedLicenses.DetainDate, 
-                                DetainedLicenses.IsReleased, DetainedLicenses.FineFees, DetainedLicenses.ReleaseDate, 
-                                People.NationalNo, People.FirstName + ' ' + People.SecondName + ' ' + People.ThirdName + ' ' + People.LastName AS FullName, 
-                                DetainedLicenses.ReleaseApplicationID
-                         FROM DetainedLicenses INNER JOIN
-                              Licenses ON DetainedLicenses.LicenseID = Licenses.LicenseID INNER JOIN
-                              Drivers ON Licenses.DriverID = Drivers.DriverID INNER JOIN
-                              People ON Drivers.PersonID = People.PersonID";
+        string query = @"SELECT DetainedLicenses.DetainID AS [D.ID], 
+                        DetainedLicenses.LicenseID AS [L.ID], 
+                        DetainedLicenses.DetainDate AS [D.Date], 
+                        DetainedLicenses.IsReleased AS [Is Released], 
+                        DetainedLicenses.FineFees AS [Fine Fees], 
+                        DetainedLicenses.ReleaseDate AS [Release Date], 
+                        People.NationalNo AS [N.No.], 
+                        People.FirstName + ' ' + People.SecondName + ' ' + People.ThirdName + ' ' + People.LastName AS [Full Name], 
+                        DetainedLicenses.ReleaseApplicationID AS [Release App.ID]
+                 FROM DetainedLicenses INNER JOIN
+                      Licenses ON DetainedLicenses.LicenseID = Licenses.LicenseID INNER JOIN
+                      Drivers ON Licenses.DriverID = Drivers.DriverID INNER JOIN
+                      People ON Drivers.PersonID = People.PersonID
+                        ORDER BY DetainedLicenses.DetainID DESC";
 
         using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
         {
