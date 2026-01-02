@@ -1,10 +1,8 @@
 # 🚗 DVLD - Driving & Vehicle License Department System
 
-![Status](https://img.shields.io/badge/Status-Work_in_Progress-yellow) ![Platform](https://img.shields.io/badge/Platform-Windows-blue) ![Language](https://img.shields.io/badge/Language-C%23-green)
+![Status](https://img.shields.io/badge/Status-Completed-brightgreen) ![Platform](https://img.shields.io/badge/Platform-Windows-blue) ![Language](https://img.shields.io/badge/Language-C%23-green)
 
 A comprehensive desktop application for managing the workflow of a Driving & Vehicle License Department System (DVLD). This system handles the complete lifecycle of issuing driving licenses, from the initial application and scheduling tests to the final issuance and license management.
-
-**🚧 Note:** This project is currently under active development.
 
 ## 🛠️ Technology Stack
 * **Language:** C# (.NET Framework)
@@ -27,6 +25,7 @@ A comprehensive desktop application for managing the workflow of a Driving & Veh
     * Manage Retake Tests with automatic fee calculation.
     * Lock appointments after pass/fail results.
 * **System Security:** User authentication, role-based access, and activity logging.
+
 ## 🏗️ Architecture
 The project follows a strict **3-Layer Architecture** to ensure clean code and maintainability:
 1.  **Data Access Layer (DAL):** interacting directly with MS SQL Server using `SqlDataReader` and `ExecuteScalar`.
