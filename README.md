@@ -131,12 +131,4 @@ A comprehensive desktop application for managing the workflow of a Driving & Veh
 
 ---
 
-## 🚀 How to Run
-1.  Clone the repository.
-2.  Run the SQL Script included in the `Database` folder to generate the tables.
-3.  Open `DVLD.sln` in Visual Studio.
-4.  Update the Connection String in `clsDataAccessSettings.cs`.
-5.  Build and Run!
-
----
 *Created by Ahmad Edais*
