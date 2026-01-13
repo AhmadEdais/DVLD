@@ -168,5 +168,10 @@ namespace DVLD_Project
             frm.ShowDialog();
 
         }
+
+        private void MainMenuStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
     }
 }
