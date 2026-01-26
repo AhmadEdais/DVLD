@@ -1,4 +1,5 @@
 ﻿using DVLD_DataAccessLayer;
+using Settings;
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -41,7 +42,7 @@ public class clsInternationalLicenseData
                 }
                 catch (Exception ex)
                 {
-                    // isFound = false;
+                    clsSettings.LogEvent(ex);
                 }
             }
         }
@@ -91,7 +92,7 @@ public class clsInternationalLicenseData
                 }
                 catch (Exception ex)
                 {
-                    // Log Error
+                    clsSettings.LogEvent(ex);
                 }
             }
         }
@@ -136,7 +137,7 @@ public class clsInternationalLicenseData
                 }
                 catch (Exception ex)
                 {
-                    return false;
+                    clsSettings.LogEvent(ex);
                 }
             }
         }
@@ -182,7 +183,7 @@ public class clsInternationalLicenseData
                 }
                 catch (Exception ex)
                 {
-                    // Log Error
+                    clsSettings.LogEvent(ex);
                 }
             }
         }
@@ -219,7 +220,7 @@ public class clsInternationalLicenseData
                 }
                 catch (Exception ex)
                 {
-                    // Log Error
+                    clsSettings.LogEvent(ex);
                 }
             }
         }
@@ -252,8 +253,7 @@ public class clsInternationalLicenseData
                 }
                 catch (Exception ex)
                 {
-                    // Log Error
-                    isFound = false;
+                    clsSettings.LogEvent(ex);
                 }
             }
         }
@@ -293,7 +293,7 @@ public class clsInternationalLicenseData
                 }
                 catch (Exception ex)
                 {
-                    // Log Error
+                    clsSettings.LogEvent(ex);
                 }
             }
         }

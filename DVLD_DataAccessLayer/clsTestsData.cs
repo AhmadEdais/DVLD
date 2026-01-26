@@ -1,4 +1,5 @@
 ﻿using DVLD_DataAccessLayer;
+using Settings;
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -41,6 +42,7 @@ public class clsTestData
                 }
                 catch (Exception ex)
                 {
+                    clsSettings.LogEvent(ex);
                     isFound = false;
                 }
             }
@@ -81,7 +83,7 @@ public class clsTestData
                 }
                 catch (Exception ex)
                 {
-                    // Log
+                    clsSettings.LogEvent(ex);
                 }
             }
         }
@@ -120,6 +122,7 @@ public class clsTestData
                 }
                 catch (Exception ex)
                 {
+                    clsSettings.LogEvent(ex);
                     return false;
                 }
             }

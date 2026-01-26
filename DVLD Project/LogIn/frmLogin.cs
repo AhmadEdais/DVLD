@@ -1,16 +1,17 @@
 ﻿using ConsoleApp1;
+using DVLD.Classes;
+using Microsoft.Win32;
+using Settings;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
-using Microsoft.Win32;
-using DVLD.Classes;
 
 namespace DVLD_Project.LogIn
 {
@@ -72,7 +73,7 @@ namespace DVLD_Project.LogIn
                 }
                 catch (Exception ex)
                 {
-                    // Ignore errors if file is corrupted
+                    clsSettings.LogEvent(ex);
                 }
             }
         }

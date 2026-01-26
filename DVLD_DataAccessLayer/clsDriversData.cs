@@ -1,4 +1,5 @@
 ﻿using DVLD_DataAccessLayer;
+using Settings;
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -34,8 +35,7 @@ public class clsDriverDataAccess
                 }
                 catch (Exception ex)
                 {
-                    // Log error (Event Viewer)
-                    isFound = false;
+                    clsSettings.LogEvent(ex); isFound = false;
                 }
             }
         }
@@ -71,6 +71,7 @@ public class clsDriverDataAccess
                 }
                 catch (Exception ex)
                 {
+                    clsSettings.LogEvent(ex);
                     isFound = false;
                 }
             }
@@ -106,7 +107,7 @@ public class clsDriverDataAccess
                 }
                 catch (Exception ex)
                 {
-                    // Log error
+                    clsSettings.LogEvent(ex);
                 }
             }
         }
@@ -136,6 +137,7 @@ public class clsDriverDataAccess
                 }
                 catch (Exception ex)
                 {
+                    clsSettings.LogEvent(ex);
                     return false;
                 }
             }
@@ -174,7 +176,7 @@ public class clsDriverDataAccess
                 }
                 catch (Exception ex)
                 {
-                    // Log Error
+                    clsSettings.LogEvent(ex);
                 }
             }
         }
@@ -212,7 +214,7 @@ public class clsDriverDataAccess
                 }
                 catch (Exception ex)
                 {
-                    // Log Error
+                    clsSettings.LogEvent(ex);
                 }
             }
         }

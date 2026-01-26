@@ -123,8 +123,7 @@ namespace DVLD_DataAccessLayer
             }
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
-                isFound = false;
+                clsSettings.LogEvent(ex);
             }
 
             finally
@@ -202,8 +201,7 @@ namespace DVLD_DataAccessLayer
             }
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
-                isFound = false;
+                clsSettings.LogEvent(ex);
             }
 
             finally
@@ -289,7 +287,7 @@ VALUES
 
             catch (Exception ex)
             {
-                Console.WriteLine("Error: " + ex.Message);
+                clsSettings.LogEvent(ex);
 
             }
 
@@ -366,8 +364,7 @@ VALUES
             }
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
-                return false;
+                clsSettings.LogEvent(ex);
             }
 
             finally
@@ -396,7 +393,7 @@ VALUES
             }
             catch (Exception ex)
             {
-                // Console.WriteLine("Error: " + ex.Message);
+                clsSettings.LogEvent(ex);
             }
             finally
             {
@@ -433,7 +430,7 @@ VALUES
             }
             catch (Exception ex)
             {
-                // Console.WriteLine("Error: " + ex.Message);
+                clsSettings.LogEvent(ex);
             }
             finally
             {
@@ -479,7 +476,7 @@ VALUES
             }
             catch (Exception ex)
             {
-                // Console.WriteLine("Error: " + ex.Message);
+                clsSettings.LogEvent(ex);
             }
             finally
             {
@@ -521,7 +518,7 @@ VALUES
 
             catch (Exception ex)
             {
-               // Console.WriteLine("Error: " + ex.Message);
+                clsSettings.LogEvent(ex);
             }
             finally
             {
@@ -548,7 +545,7 @@ VALUES
             }
             catch (Exception ex)
             {
-                // Console.WriteLine("Error: " + ex.Message);
+                clsSettings.LogEvent(ex);
             }
             finally
             {
@@ -583,8 +580,7 @@ VALUES
             }
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
-                isFound = false;
+                clsSettings.LogEvent(ex);
             }
             finally
             {
@@ -618,8 +614,7 @@ VALUES
             }
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
-                isFound = false;
+                clsSettings.LogEvent(ex);
             }
             finally
             {
@@ -656,7 +651,7 @@ VALUES
                     }
                     catch (Exception ex)
                     {
-                        // Handle Log
+                        clsSettings.LogEvent(ex);
                     }
                 }
             }
@@ -687,7 +682,7 @@ VALUES
                     }
                     catch (Exception ex)
                     {
-                        // Log Error
+                        clsSettings.LogEvent(ex);
                     }
                 }
             }

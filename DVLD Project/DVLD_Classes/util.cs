@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Settings;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -36,12 +38,12 @@ namespace DVLD.Classes
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error creating folder: " + ex.Message);
-                    return false;
+                    clsUtil.LogEvent(ex);
                 }
+
             }
 
-            return true;
+                return true;
 
         }
 
@@ -76,6 +78,7 @@ namespace DVLD.Classes
             catch (IOException iox)
             {
                 MessageBox.Show(iox.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                clsSettings.LogEvent(iox.Message);
                 return false;
             }
 
@@ -92,7 +95,7 @@ namespace DVLD.Classes
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error saving credentials to registry: " + ex.Message);
+                clsSettings.LogEvent(ex);
             }
         }
         public static void _SaveCredentialsToFile(string username, string password)
@@ -111,8 +114,38 @@ namespace DVLD.Classes
             }
             catch (Exception ex)
             {
+                clsSettings.LogEvent(ex);
                 MessageBox.Show("Error saving credentials: " + ex.Message);
             }
+        }
+        private static string _sourceName = "DVLD_App"; // Define your source name once
+
+        public static void LogEvent(string message, EventLogEntryType type = EventLogEntryType.Information)
+        {
+            try
+            {
+                // Check if the source exists. 
+                // NOTE: Creating a source requires Admin privileges. 
+                // If the app runs as standard user, this must be created beforehand (e.g. by an installer).
+                if (!EventLog.SourceExists(_sourceName))
+                {
+                    EventLog.CreateEventSource(_sourceName, "Application");
+                }
+
+                EventLog.WriteEntry(_sourceName, message, type);
+            }
+            catch (Exception ex)
+            {
+                clsUtil.LogEvent(ex);
+            }
+        }
+
+        // Overload for easy Exception logging
+        public static void LogEvent(Exception ex)
+        {
+            // Log the message + the location (StackTrace)
+            string errorMessage = $"Message: {ex.Message}\n\nStack Trace:\n{ex.StackTrace}";
+            LogEvent(errorMessage, EventLogEntryType.Error);
         }
     }
 }

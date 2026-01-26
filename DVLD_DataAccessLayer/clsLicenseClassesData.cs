@@ -1,4 +1,5 @@
 ﻿using DVLD_DataAccessLayer;
+using Settings;
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -39,8 +40,7 @@ namespace DVLD_DataAccess
                     }
                     catch (Exception ex)
                     {
-                        // Handle Log
-                        isFound = false;
+                        clsSettings.LogEvent(ex);
                     }
                 }
             }
@@ -79,8 +79,7 @@ namespace DVLD_DataAccess
                     }
                     catch (Exception ex)
                     {
-                        // Handle Log
-                        isFound = false;
+                        clsSettings.LogEvent(ex);
                     }
                 }
             }
@@ -117,7 +116,7 @@ namespace DVLD_DataAccess
                     }
                     catch (Exception ex)
                     {
-                        return false;
+                        clsSettings.LogEvent(ex);
                     }
                 }
             }
@@ -141,11 +140,14 @@ namespace DVLD_DataAccess
                             if (reader.HasRows) dt.Load(reader);
                         }
                     }
-                    catch (Exception ex) { }
+                    catch (Exception ex)
+                    {
+                        clsSettings.LogEvent(ex);
+                    }
                 }
             }
             return dt;
-        
+
         }
         public static int GetLicenseClassIDByClassName(string ClassName)
         {
@@ -173,7 +175,7 @@ namespace DVLD_DataAccess
                     }
                     catch (Exception ex)
                     {
-                        // Log error (Event Viewer)
+                        clsSettings.LogEvent(ex);
                     }
                 }
             }
@@ -206,7 +208,7 @@ namespace DVLD_DataAccess
                     }
                     catch (Exception ex)
                     {
-                        // Log error
+                        clsSettings.LogEvent(ex);
                     }
                 }
             }
@@ -239,7 +241,7 @@ namespace DVLD_DataAccess
                     }
                     catch (Exception ex)
                     {
-                        // Log error
+                        clsSettings.LogEvent(ex);
                     }
                 }
             }
@@ -273,12 +275,12 @@ namespace DVLD_DataAccess
                     }
                     catch (Exception ex)
                     {
-                        // Log error
+                        clsSettings.LogEvent(ex);
                     }
                 }
-            }
 
-            return ClassName;
+                return ClassName;
+            }
         }
     }
 }

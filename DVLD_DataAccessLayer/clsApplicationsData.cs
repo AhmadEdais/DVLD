@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using Settings;
 
 namespace DVLD_DataAccessLayer
 
@@ -48,8 +49,7 @@ namespace DVLD_DataAccessLayer
                     }
                     catch (Exception ex)
                     {
-                        // Handle Log
-                        isFound = false;
+                        clsSettings.LogEvent(ex);
                     }
                 }
             }
@@ -92,7 +92,7 @@ namespace DVLD_DataAccessLayer
                     }
                     catch (Exception ex)
                     {
-                        // Handle Log
+                        clsSettings.LogEvent(ex);
                     }
                 }
             }
@@ -133,7 +133,7 @@ namespace DVLD_DataAccessLayer
                     }
                     catch (Exception ex)
                     {
-                        return false;
+                        clsSettings.LogEvent(ex);
                     }
                 }
             }
@@ -158,7 +158,7 @@ namespace DVLD_DataAccessLayer
                     }
                     catch (Exception ex)
                     {
-                        // Likely a foreign key constraint error
+                        clsSettings.LogEvent(ex);
                     }
                 }
             }
@@ -182,7 +182,10 @@ namespace DVLD_DataAccessLayer
                         object result = command.ExecuteScalar();
                         if (result != null) isFound = true;
                     }
-                    catch { isFound = false; }
+                    catch (Exception ex)
+		                {
+                        clsSettings.LogEvent(ex);
+                    }
                 }
             }
             return isFound;
@@ -212,7 +215,7 @@ namespace DVLD_DataAccessLayer
                     }
                     catch (Exception ex)
                     {
-                        return false;
+                        clsSettings.LogEvent(ex);
                     }
                 }
             }

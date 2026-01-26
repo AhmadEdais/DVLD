@@ -1,4 +1,5 @@
 ﻿using DVLD_DataAccessLayer;
+using Settings;
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -45,6 +46,7 @@ public class clsTestAppointmentData
                 }
                 catch (Exception ex)
                 {
+                    clsSettings.LogEvent(ex);
                     isFound = false;
                 }
             }
@@ -88,7 +90,7 @@ public class clsTestAppointmentData
                 }
                 catch (Exception ex)
                 {
-                    // Log error
+                    clsSettings.LogEvent(ex);
                 }
             }
         }
@@ -133,6 +135,7 @@ public class clsTestAppointmentData
                 }
                 catch (Exception ex)
                 {
+                    clsSettings.LogEvent(ex);
                     return false;
                 }
             }
@@ -172,7 +175,7 @@ public class clsTestAppointmentData
                 }
                 catch (Exception ex)
                 {
-                    // Handle Log
+                    clsSettings.LogEvent(ex);
                 }
             }
         }
@@ -212,7 +215,7 @@ public class clsTestAppointmentData
         }
         catch (Exception ex)
         {
-            // Ideally, log the error to Event Viewer
+            clsSettings.LogEvent(ex);
             isFound = false;
         }
 
@@ -240,8 +243,7 @@ public class clsTestAppointmentData
                 }
                 catch (Exception ex)
                 {
-                    // Log error
-                    return false;
+                    clsSettings.LogEvent(ex); return false;
                 }
             }
         }

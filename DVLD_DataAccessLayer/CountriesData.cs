@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Settings;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -40,7 +41,7 @@ namespace DVLD_DataAccessLayer
 
             catch (Exception ex)
             {
-                // Console.WriteLine("Error: " + ex.Message);
+                clsSettings.LogEvent(ex);
             }
             finally
             {
@@ -79,7 +80,7 @@ namespace DVLD_DataAccessLayer
 
             catch (Exception ex)
             {
-                // Console.WriteLine("Error: " + ex.Message);
+                clsSettings.LogEvent(ex);
             }
             finally
             {
@@ -116,7 +117,7 @@ namespace DVLD_DataAccessLayer
 
             catch (Exception ex)
             {
-                // Console.WriteLine("Error: " + ex.Message);
+                clsSettings.LogEvent(ex);
             }
             finally
             {

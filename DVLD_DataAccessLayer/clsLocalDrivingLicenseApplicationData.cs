@@ -1,4 +1,5 @@
 ﻿using DVLD_DataAccessLayer;
+using Settings;
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -36,8 +37,7 @@ namespace DVLDBusinessLayer // Change to your actual DataAccess namespace if dif
                     }
                     catch (Exception ex)
                     {
-                        // Log error
-                        isFound = false;
+                        clsSettings.LogEvent(ex); isFound = false;
                     }
                 }
             }
@@ -71,7 +71,7 @@ namespace DVLDBusinessLayer // Change to your actual DataAccess namespace if dif
                     }
                     catch (Exception ex)
                     {
-                        // Log error
+                        clsSettings.LogEvent(ex);
                     }
                 }
             }
@@ -101,6 +101,7 @@ namespace DVLDBusinessLayer // Change to your actual DataAccess namespace if dif
                     }
                     catch (Exception ex)
                     {
+                        clsSettings.LogEvent(ex);
                         return false;
                     }
                 }
@@ -129,6 +130,7 @@ namespace DVLDBusinessLayer // Change to your actual DataAccess namespace if dif
                     }
                     catch (Exception ex)
                     {
+                        clsSettings.LogEvent(ex);
                         return false;
                     }
                 }
@@ -182,7 +184,7 @@ namespace DVLDBusinessLayer // Change to your actual DataAccess namespace if dif
                     }
                     catch (Exception ex)
                     {
-                        // Handle Log
+                        clsSettings.LogEvent(ex);
                     }
                 }
             }
@@ -226,8 +228,7 @@ namespace DVLDBusinessLayer // Change to your actual DataAccess namespace if dif
                     }
                     catch (Exception ex)
                     {
-                        // Handle Log (optional)
-                        isFound = false;
+                        clsSettings.LogEvent(ex); isFound = false;
                     }
                 }
             }
@@ -263,7 +264,7 @@ namespace DVLDBusinessLayer // Change to your actual DataAccess namespace if dif
                     }
                     catch (Exception ex)
                     {
-                        // Handle Log
+                        clsSettings.LogEvent(ex);
                     }
                 }
             }
@@ -297,7 +298,7 @@ namespace DVLDBusinessLayer // Change to your actual DataAccess namespace if dif
                     }
                     catch (Exception ex)
                     {
-                        // Handle Log
+                        clsSettings.LogEvent(ex);
                     }
                 }
             }
@@ -332,7 +333,7 @@ namespace DVLDBusinessLayer // Change to your actual DataAccess namespace if dif
                     }
                     catch (Exception ex)
                     {
-                        // Handle Log
+                        clsSettings.LogEvent(ex);
                     }
                 }
             }
@@ -367,7 +368,7 @@ namespace DVLDBusinessLayer // Change to your actual DataAccess namespace if dif
                     }
                     catch (Exception ex)
                     {
-                        // Handle Log
+                        clsSettings.LogEvent(ex);
                     }
                 }
             }
@@ -402,7 +403,7 @@ namespace DVLDBusinessLayer // Change to your actual DataAccess namespace if dif
                     }
                     catch (Exception ex)
                     {
-                        // Handle Log
+                        clsSettings.LogEvent(ex);
                     }
                 }
             }
@@ -438,7 +439,7 @@ namespace DVLDBusinessLayer // Change to your actual DataAccess namespace if dif
                     }
                     catch (Exception ex)
                     {
-                        // Log error
+                        clsSettings.LogEvent(ex);
                     }
                 }
             }
@@ -488,7 +489,7 @@ namespace DVLDBusinessLayer // Change to your actual DataAccess namespace if dif
                     }
                     catch (Exception ex)
                     {
-                        // Log error
+                        clsSettings.LogEvent(ex);
                     }
                 }
             }
@@ -527,7 +528,7 @@ namespace DVLDBusinessLayer // Change to your actual DataAccess namespace if dif
                     }
                     catch (Exception ex)
                     {
-                        // Log error
+                        clsSettings.LogEvent(ex);
                     }
                 }
             }
@@ -560,7 +561,7 @@ namespace DVLDBusinessLayer // Change to your actual DataAccess namespace if dif
                     }
                     catch (Exception ex)
                     {
-                        // Log error
+                        clsSettings.LogEvent(ex);
                     }
                 }
             }
@@ -595,7 +596,7 @@ namespace DVLDBusinessLayer // Change to your actual DataAccess namespace if dif
                     }
                     catch (Exception ex)
                     {
-                        // Log error
+                        clsSettings.LogEvent(ex);
                     }
                 }
             }
@@ -630,7 +631,7 @@ namespace DVLDBusinessLayer // Change to your actual DataAccess namespace if dif
                     }
                     catch (Exception ex)
                     {
-                        // Log error
+                        clsSettings.LogEvent(ex);
                     }
                 }
             }
@@ -665,7 +666,7 @@ namespace DVLDBusinessLayer // Change to your actual DataAccess namespace if dif
                     }
                     catch (Exception ex)
                     {
-                        // Log error
+                        clsSettings.LogEvent(ex);
                     }
                 }
             }
