@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using Microsoft.Win32;
 using DVLD.Classes;
 
 namespace DVLD_Project.LogIn
@@ -22,14 +23,30 @@ namespace DVLD_Project.LogIn
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
-            _LoadCredentialsFromFile();
+           // _LoadCredentialsFromFile();
+           _LoadCredentialsFromReg();
             // Make "Enter" trigger the Save button
             this.AcceptButton = btnLogin;
 
             // Optional: Make "Escape" trigger the Close button
             this.CancelButton = btnExit;
         }
-        
+        private void _LoadCredentialsFromReg()
+        {
+            string keyPath = @"HKEY_CURRENT_USER\Software\DVLD";
+            string savedCredentials = Registry.GetValue(keyPath, "Credentials", null) as string;
+            if (!string.IsNullOrEmpty(savedCredentials))
+            {
+                string[] result = savedCredentials.Split('#');
+                if (result.Length > 1) // Ensure we have both parts
+                {
+                    txtUserName.Text = result[0];
+                    txtPassword.Text = result[1];
+                    ckRememberMe.Checked = true;
+                }
+            }
+
+        }
         private void _LoadCredentialsFromFile()
         {
             string filePath = "login_info.txt";
@@ -75,11 +92,11 @@ namespace DVLD_Project.LogIn
                         if(ckRememberMe.Checked)
                         {
                             // Save user credentials securely for future logins
-                            clsUtil._SaveCredentialsToFile(txtUserName.Text.Trim(), txtPassword.Text.Trim());
+                            clsUtil.SaveCredentialsToReg(txtUserName.Text.Trim(), txtPassword.Text.Trim());
                         }
                         else
                         {
-                            clsUtil._SaveCredentialsToFile("", "");
+                            clsUtil.SaveCredentialsToReg("", "");
                         }
                         this.Hide();
                         frmMain frm = new frmMain(this); // Pass 'this' to handle logout later
@@ -102,7 +119,7 @@ namespace DVLD_Project.LogIn
         public void ShowLogin()
         {
             this.Show();
-            _LoadCredentialsFromFile();
+            _LoadCredentialsFromReg();
         }
         private void button2_Click(object sender, EventArgs e)
         {

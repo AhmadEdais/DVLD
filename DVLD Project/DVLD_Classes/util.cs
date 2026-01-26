@@ -82,6 +82,19 @@ namespace DVLD.Classes
             sourceFile = destinationFile;
             return true;
         }
+        public static void SaveCredentialsToReg(string username, string password)
+        {
+            string keyPath = @"HKEY_CURRENT_USER\Software\DVLD";
+            string dataToSave = username + '#' + password;
+            try
+            {
+                Microsoft.Win32.Registry.SetValue(keyPath, "Credentials", dataToSave);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error saving credentials to registry: " + ex.Message);
+            }
+        }
         public static void _SaveCredentialsToFile(string username, string password)
         {
             // Build the file path (it will be created next to your .exe)
