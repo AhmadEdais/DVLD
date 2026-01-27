@@ -83,7 +83,7 @@ namespace DVLD_Project.LogIn
             clsUser user = clsUser.FindByUsername(txtUserName.Text);
             if(user != null)
             {
-                if(user.Password == txtPassword.Text)
+                if(user.Password ==clsSettings.ComputeHash(txtPassword.Text))
                 {
                     if(user.IsActive)
                     {

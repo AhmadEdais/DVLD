@@ -42,7 +42,8 @@ namespace DVLD_DataAccessLayer
                     }
                     catch (Exception ex)
                     {
-                        System.Diagnostics.Debug.WriteLine("Error: " + ex.Message);
+                        clsSettings.LogEvent(ex);
+                        clsSettings.LogEvent(ex);
                     }
                 }
             }
@@ -81,7 +82,7 @@ namespace DVLD_DataAccessLayer
                     }
                     catch (Exception ex)
                     {
-                        System.Diagnostics.Debug.WriteLine("Error: " + ex.Message);
+                        clsSettings.LogEvent(ex);
                         return false;
                     }
                     // 4. Return True if a row was actually found and updated
@@ -122,7 +123,7 @@ namespace DVLD_DataAccessLayer
                     }
                     catch (Exception ex)
                     {
-                        System.Diagnostics.Debug.WriteLine("Error: " + ex.Message);
+                        clsSettings.LogEvent(ex);
                     }
                 }
             }

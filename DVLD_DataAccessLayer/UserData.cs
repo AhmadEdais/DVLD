@@ -86,7 +86,7 @@ namespace DVLD_DataAccessLayer
                     }
                     catch (Exception ex)
                     {
-                        System.Diagnostics.Debug.WriteLine("Error: " + ex.Message);
+                        clsSettings.LogEvent(ex);
                         return false;
                     }
                 }
@@ -120,7 +120,7 @@ namespace DVLD_DataAccessLayer
                     }
                     catch (Exception ex)
                     {
-                        System.Diagnostics.Debug.WriteLine("Error: " + ex.Message);
+                        clsSettings.LogEvent(ex);
                         return false;
                     }
                 }
@@ -160,7 +160,7 @@ namespace DVLD_DataAccessLayer
                     }
                     catch (Exception ex)
                     {
-                        System.Diagnostics.Debug.WriteLine("Error: " + ex.Message);
+                        clsSettings.LogEvent(ex);
                     }
                 }
             }
@@ -196,7 +196,7 @@ namespace DVLD_DataAccessLayer
                     }
                     catch (Exception ex)
                     {
-                        System.Diagnostics.Debug.WriteLine("Error: " + ex.Message);
+                        clsSettings.LogEvent(ex);
                         isFound = false;
                     }
                 }
@@ -226,7 +226,7 @@ namespace DVLD_DataAccessLayer
                     }
                     catch (Exception ex)
                     {
-                        System.Diagnostics.Debug.WriteLine("Error: " + ex.Message);
+                        clsSettings.LogEvent(ex);
                         isFound = false;
                     }
                 }
@@ -266,7 +266,7 @@ namespace DVLD_DataAccessLayer
                     }
                     catch (Exception ex)
                     {
-                        System.Diagnostics.Debug.WriteLine("Error: " + ex.Message);
+                        clsSettings.LogEvent(ex);
                         isFound = false;
                     }
                 }
@@ -343,7 +343,7 @@ namespace DVLD_DataAccessLayer
                     }
                     catch (Exception ex)
                     {
-                        System.Diagnostics.Debug.WriteLine("Error: " + ex.Message);
+                        clsSettings.LogEvent(ex);
                         isFound = false;
                     }
                 }

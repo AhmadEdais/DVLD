@@ -1,5 +1,6 @@
 ﻿using ConsoleApp1;
 using DVLD.Classes;
+using Settings;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -55,12 +56,18 @@ namespace DVLD_Project.Users
                 // 3. Stop the save method right here.
                 return;
             }
-            _User.Password = txtNewPassword.Text;
+            if(_User.Password !=clsSettings.ComputeHash(txtCurrentPassword.Text))
+                            {
+                MessageBox.Show("Current Password is incorrect!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+           string Password = txtNewPassword.Text;
+            _User.Password = clsSettings.ComputeHash(txtNewPassword.Text);
             if (_User.Save())
             {
                 if (_User.UserID == Global.CurrentUser.UserID)
                 { 
-                    clsUtil._SaveCredentialsToFile(_User.UserName, _User.Password);
+                    clsUtil.SaveCredentialsToReg(_User.UserName, Password);
                 }
                 MessageBox.Show("Data Saved Successfully.", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 
@@ -76,11 +83,7 @@ namespace DVLD_Project.Users
                 e.Cancel = true;
                 errorProvider1.SetError(txtCurrentPassword, "This field cannot be Empty!");
             }
-            if(txtCurrentPassword.Text != _User.Password)
-            {
-                e.Cancel = true;
-                errorProvider1.SetError(txtCurrentPassword, "Current password is incorrect!");
-            }
+            
             else
             {
                 e.Cancel = false;
